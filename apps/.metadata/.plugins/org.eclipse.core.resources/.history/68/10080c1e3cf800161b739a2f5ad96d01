@@ -21,9 +21,6 @@ public class PizzeriaAdminConsoleApp {
 				{"IND","L'indienne","14.00"},
 				{"","",""},
 				{"","",""},
-				{"","",""},
-				{"","",""},
-				{"","",""},
 				{"","",""}
 		};
 		while(reponse!=99){
@@ -45,7 +42,7 @@ public class PizzeriaAdminConsoleApp {
 				if (idPizzaVide == tabPizza.length){
 					System.out.println("Erreur il y trop de pizzas : "+idPizzaVide);
 				}else{
-					System.out.println("Veuillez saisir le code : ");
+					System.out.println("Veuillez saisir le code (non vide) : ");
 					codePizza = scan.next();
 					System.out.println("Veuillez saisir le nom (sans espace) : ");
 					nomPizza = scan.next();
@@ -69,7 +66,7 @@ public class PizzeriaAdminConsoleApp {
 				if (idPizzaModif == tabPizza.length){
 					System.out.println("Erreur il n'y a pas de pizza : "+codePizzaModif);
 				}else{
-					System.out.println("Veuillez saisir le code : ");
+					System.out.println("Veuillez saisir le code (non vide) : ");
 					codePizza = scan.next();
 					System.out.println("Veuillez saisir le nom (sans espace) : ");
 					nomPizza = scan.next();

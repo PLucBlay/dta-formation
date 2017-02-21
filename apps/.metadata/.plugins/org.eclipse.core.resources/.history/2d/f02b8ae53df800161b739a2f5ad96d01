@@ -1,5 +1,6 @@
 package fr.pizzeria.console;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PizzeriaAdminConsoleApp {
@@ -18,13 +19,7 @@ public class PizzeriaAdminConsoleApp {
 				{"CAN","La cannibale","12.50"},
 				{"SAV","La savoyarde","13.00"},
 				{"ORI","L'orientale","13.50"},
-				{"IND","L'indienne","14.00"},
-				{"","",""},
-				{"","",""},
-				{"","",""},
-				{"","",""},
-				{"","",""},
-				{"","",""}
+				{"IND","L'indienne","14.00"}
 		};
 		while(reponse!=99){
 			switch(reponse){
@@ -43,18 +38,20 @@ public class PizzeriaAdminConsoleApp {
 					}
 				}
 				if (idPizzaVide == tabPizza.length){
-					System.out.println("Erreur il y trop de pizzas : "+idPizzaVide);
-				}else{
-					System.out.println("Veuillez saisir le code : ");
-					codePizza = scan.next();
-					System.out.println("Veuillez saisir le nom (sans espace) : ");
-					nomPizza = scan.next();
-					System.out.println("Veuillez saisir le prix : ");
-					prixPizza = scan.next();
-					tabPizza[idPizzaVide][0]=codePizza;
-					tabPizza[idPizzaVide][1]=nomPizza;
-					tabPizza[idPizzaVide][2]=prixPizza;
+				//	System.out.println("Erreur il y trop de pizzas : "+idPizzaVide);
+					tabPizza = Arrays.copyOf(tabPizza, tabPizza.length+1);
+					idPizzaVide = tabPizza.length-1;
+					
 				}
+				System.out.println("Veuillez saisir le code (non vide) : ");
+				codePizza = scan.next();
+				System.out.println("Veuillez saisir le nom (sans espace) : ");
+				nomPizza = scan.next();
+				System.out.println("Veuillez saisir le prix : ");
+				prixPizza = scan.next();
+				tabPizza[idPizzaVide][0]=codePizza;
+				tabPizza[idPizzaVide][1]=nomPizza;
+				tabPizza[idPizzaVide][2]=prixPizza;
 				break;
 			case 3 : 
 				int idPizzaModif = tabPizza.length;
@@ -69,7 +66,7 @@ public class PizzeriaAdminConsoleApp {
 				if (idPizzaModif == tabPizza.length){
 					System.out.println("Erreur il n'y a pas de pizza : "+codePizzaModif);
 				}else{
-					System.out.println("Veuillez saisir le code : ");
+					System.out.println("Veuillez saisir le code (non vide) : ");
 					codePizza = scan.next();
 					System.out.println("Veuillez saisir le nom (sans espace) : ");
 					nomPizza = scan.next();
