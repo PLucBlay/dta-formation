@@ -7,7 +7,6 @@ public class PizzeriaAdminConsoleApp {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int reponse = 0;
-        boolean scanError;
 		String codePizza,nomPizza,prixPizza = "";
 		String tabPizza[][] =
 			{
@@ -42,12 +41,13 @@ public class PizzeriaAdminConsoleApp {
 				if (idPizzaVide == tabPizza.length){
 					System.out.println("Erreur il y trop de pizzas : "+idPizzaVide);
 				}else{
-					System.out.println("Veuillez saisir le code (non vide) : ");
+					System.out.println("Veuillez saisir le code : ");
 					codePizza = scan.next();
 					System.out.println("Veuillez saisir le nom (sans espace) : ");
 					nomPizza = scan.next();
 					System.out.println("Veuillez saisir le prix : ");
 					prixPizza = scan.next();
+					//TODO : verif pizza inserable
 					tabPizza[idPizzaVide][0]=codePizza;
 					tabPizza[idPizzaVide][1]=nomPizza;
 					tabPizza[idPizzaVide][2]=prixPizza;
@@ -66,12 +66,13 @@ public class PizzeriaAdminConsoleApp {
 				if (idPizzaModif == tabPizza.length){
 					System.out.println("Erreur il n'y a pas de pizza : "+codePizzaModif);
 				}else{
-					System.out.println("Veuillez saisir le code (non vide) : ");
+					System.out.println("Veuillez saisir le code : ");
 					codePizza = scan.next();
 					System.out.println("Veuillez saisir le nom (sans espace) : ");
 					nomPizza = scan.next();
 					System.out.println("Veuillez saisir le prix : ");
 					prixPizza = scan.next();
+					//TODO : verif pizza inserable
 					tabPizza[idPizzaModif][0]=codePizza;
 					tabPizza[idPizzaModif][1]=nomPizza;
 					tabPizza[idPizzaModif][2]=prixPizza;
@@ -105,17 +106,10 @@ public class PizzeriaAdminConsoleApp {
 			System.out.println("3. Mettre à jour une pizza");
 			System.out.println("4. Supprimer une pizza");
 			System.out.println("99. Sortir");
-			scanError = false;
-			while(!scanError){
-				try{
-					reponse = scan.nextInt();
-					scanError = true;
-				}catch(Exception e){
-					System.out.println("Erreur : veuillez entrer un entier :");
-					scan.next();
-				}
-			}
+			reponse = scan.nextInt();
+			//TODO : try catch si non int?
 		}
 		System.out.println("***** A Bientôt *****");
 	}
+
 }

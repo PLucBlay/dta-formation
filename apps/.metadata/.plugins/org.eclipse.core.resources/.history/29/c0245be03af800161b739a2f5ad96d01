@@ -42,12 +42,13 @@ public class PizzeriaAdminConsoleApp {
 				if (idPizzaVide == tabPizza.length){
 					System.out.println("Erreur il y trop de pizzas : "+idPizzaVide);
 				}else{
-					System.out.println("Veuillez saisir le code (non vide) : ");
+					System.out.println("Veuillez saisir le code : ");
 					codePizza = scan.next();
 					System.out.println("Veuillez saisir le nom (sans espace) : ");
 					nomPizza = scan.next();
 					System.out.println("Veuillez saisir le prix : ");
 					prixPizza = scan.next();
+					//TODO : verif pizza inserable
 					tabPizza[idPizzaVide][0]=codePizza;
 					tabPizza[idPizzaVide][1]=nomPizza;
 					tabPizza[idPizzaVide][2]=prixPizza;
@@ -66,12 +67,13 @@ public class PizzeriaAdminConsoleApp {
 				if (idPizzaModif == tabPizza.length){
 					System.out.println("Erreur il n'y a pas de pizza : "+codePizzaModif);
 				}else{
-					System.out.println("Veuillez saisir le code (non vide) : ");
+					System.out.println("Veuillez saisir le code : ");
 					codePizza = scan.next();
 					System.out.println("Veuillez saisir le nom (sans espace) : ");
 					nomPizza = scan.next();
 					System.out.println("Veuillez saisir le prix : ");
 					prixPizza = scan.next();
+					//TODO : verif pizza inserable
 					tabPizza[idPizzaModif][0]=codePizza;
 					tabPizza[idPizzaModif][1]=nomPizza;
 					tabPizza[idPizzaModif][2]=prixPizza;
