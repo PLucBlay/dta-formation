@@ -1,0 +1,47 @@
+package fr.pizzeria.console;
+
+import java.util.Scanner;
+
+public class PizzeriaAdminConsoleApp {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int reponse = 0;
+		String tabPizza[][] =
+			{
+				{"PEP","Pépéroni","12.50"},
+				{"MAR","Margherita","14.00"},
+				{"REI","La Reine","11.50"},
+				{"FRO","La 4 fromages","12.00"},
+				{"CAN","La cannibale","12.50"},
+				{"SAV","La savoyarde","13.00"},
+				{"ORI","L'orientale","13.50"},
+				{"IND","L'indienne","14.00"},
+				{"","",""},
+				{"","",""},
+				{"","",""}
+		};
+		while((reponse = scan.nextInt())!=99){
+			System.out.println("***** Pizzeria Administration *****");
+			System.out.println("1. Lister les pizzas");
+			System.out.println("2. Ajouter une nouvelle pizza");
+			System.out.println("3. Mettre à jour une pizza");
+			System.out.println("4. Supprimer une pizza");
+			System.out.println("99. Sortir");
+			switch(reponse){
+			case 1 : 
+				break;
+			case 2 :
+				break;
+			case 3 :
+				break;
+			case 4 :
+				break;
+			default : 
+				break;
+			}
+		}
+		System.out.println("***** A Bientôt *****");
+	}
+
+}

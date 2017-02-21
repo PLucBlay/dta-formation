@@ -1,0 +1,33 @@
+package fr.pizzeria.console;
+
+import java.util.Scanner;
+
+public class PizzeriaAdminConsoleApp {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int reponse = 0;
+		while((reponse = scan.nextInt())!=99){
+			System.out.println("***** Pizzeria Administration *****");
+			System.out.println("1. Lister les pizzas");
+			System.out.println("2. Ajouter une nouvelle pizza");
+			System.out.println("3. Mettre à jour une pizza");
+			System.out.println("4. Supprimer une pizza");
+			System.out.println("99. Sortir");
+			switch(reponse){
+			case 1 : 
+				break;
+			case 2 :
+				break;
+			case 3 :
+				break;
+			case 4 :
+				break;
+			default : 
+				break;
+			}
+		}
+		System.out.println("***** A Bientôt *****");
+	}
+
+}
