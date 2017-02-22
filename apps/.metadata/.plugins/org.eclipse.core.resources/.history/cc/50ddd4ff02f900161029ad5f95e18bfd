@@ -25,7 +25,7 @@ public class Menu {
 	public void showMenu() {
 		System.out.println("***** Pizzeria Administration *****");
 		for (Option opt : liste) {
-			opt.print();
+			System.out.println(opt.getnumChoix() + " -> " + opt.getContenuOption());
 		}
 		System.out.println("99 -> Sortir");
 	}

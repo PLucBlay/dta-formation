@@ -24,8 +24,4 @@ public abstract class Option {
 	}
 
 	public abstract void execute();
-
-	public void print() {
-		System.out.println(numChoix + " -> " + contenuOption);
-	}
 }
