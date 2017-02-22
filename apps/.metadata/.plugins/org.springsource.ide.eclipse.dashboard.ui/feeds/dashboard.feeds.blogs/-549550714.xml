@@ -5,7 +5,48 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-02-21T09:27:18Z</updated>
+  <updated>2017-02-22T00:01:00Z</updated>
+  <entry>
+    <title>Spring Tips: Apache MyBatis</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/02/22/spring-tips-apache-mybatis" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2017-01-26:2812</id>
+    <updated>2017-02-22T00:01:00Z</updated>
+    <content type="html">&lt;p&gt;Speaker: &lt;a href="https://www.twitter.com/starbuxman"&gt;Josh Long&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hi Spring fans! In this tip, we&amp;rsquo;ll look at mapping objects to and from SQL using Apache MyBatis and Spring Boot&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/JyythoOXdbU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - February 21st, 2017</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/02/21/this-week-in-spring-february-21st-2017" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2017-02-21:2845</id>
+    <updated>2017-02-21T21:37:00Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in Atlanta, GA for &lt;a href="http://DevNexus.com"&gt;the incredible DevNexus event&lt;/a&gt; and then it&amp;rsquo;s off to Geneva, Switzerland for the Voxxed CERN event. As usual, &lt;a href="http://twitter.com/starbuxman"&gt;don&amp;rsquo;t hesitate to say &amp;ldquo;Hi&amp;rdquo;&lt;/a&gt; if you&amp;rsquo;re around!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2017/02/15/spring-cloud-data-flow-1-2-m1-released"&gt;Thomas Risberg just announced Spring Cloud Data Flow 1.2.M1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring IO Platform lead Andy Wilkinson has just &lt;a href="https://spring.io/blog/2017/02/21/spring-io-platform-brussels-release"&gt;announced the Spring IO Platform Brussels release&lt;/a&gt; which introduces Spring Kafka to the release train and updates several others.&lt;/li&gt;
+  &lt;li&gt;InfoQ&amp;rsquo;s &lt;a href="https://www.twitter.com/charleshumble"&gt;Charles Humble&lt;/a&gt; takes a look at &lt;a href="https://www.infoq.com/articles/enterprise-java-opinion"&gt;the future of Enterprise Java&lt;/a&gt; via the lens of the Geoffrey Moore&amp;rsquo;s Chasm metaphor in this article.&lt;/li&gt;
+  &lt;li&gt;Last week, in another installment of &lt;em&gt;Spring Tips&lt;/em&gt;, we looked at &lt;a href="https://spring.io/blog/2017/02/15/spring-tips-jooq"&gt;how to use JOOQ with Spring Boot&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Using Java FX? This nice post by Gregg Bolinger shows how to use &lt;a href="http://www.greggbolinger.com/let-spring-be-your-javafx-controller-factory/"&gt;Spring with JavaFX&lt;/a&gt;, and have it be your controller factory.&lt;/li&gt;
+  &lt;li&gt;Check out community hero Michael Simons&amp;rsquo; &lt;a href="https://jaxenter.de/spring-boot-starter-2-52525"&gt;German-language JAX talk introducing Spring Boot starters&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Deepak Tyagi put together a nice post on &lt;a href="https://dzone.com/articles/safeguard-spring-app-from-cache-failure"&gt;building applications that carry on in the face of a cache failure using the Spring Cache abstraction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Aboullaite Mohammed put together &lt;a href="https://aboullaite.me/spring-boot-token-authentication-using-jwt/"&gt;an interesting look at using JWT with Spring Boot&lt;/a&gt;. It&amp;rsquo;s a good first cut!&lt;/li&gt;
+  &lt;li&gt;Want to test against an in-memory MongoDB database? This Brazillian-language blog explaining how &lt;a href="https://www.paradigmadigital.com/dev/tests-integrados-spring-boot-fongo/"&gt;to use Spring Boot and Fongo might be just for you&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Matt McCandless does a nice &lt;a href="https://keyholesoftware.com/2017/01/30/spring-boot-the-right-boot-for-you/"&gt;job introducing Spring Boot in this post&lt;/a&gt;: &amp;ldquo;just put them on and lace them up!&amp;rdquo;&lt;/li&gt;
+  &lt;li&gt;Interesting post on the OpenShift blog on &lt;a href="https://blog.openshift.com/performance-metrics-apm-spring-boot-microservices-openshift/"&gt;how to use Spring Boot and their Hawkular APM tool&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;This is an interesting look at &lt;a href="http://pappanyn.me/blog/2017/02/17/a-run-around-with-hazelcast/"&gt;using Spring Boot with Hazelcast&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Dhiraj Ray explains how &lt;a href="http://www.devglan.com/faq/spring-boot-mvc-apache-tiles-example"&gt;to use Spring MVC (in a Spring Boot application) with Apache Tiles&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Christoph Burmeister looks at &lt;a href="http://christoph-burmeister.eu/?p=2951"&gt;how to load-balance Spring Boot applications with Nginx&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This DZone post introduces &lt;a href="https://dzone.com/articles/spring-core-dependency-injection"&gt;basic dependency injection with Spring&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Spring IO Platform Brussels-RELEASE</title>
     <link rel="alternate" href="https://spring.io/blog/2017/02/21/spring-io-platform-brussels-release" />
@@ -440,46 +481,5 @@ Remember to run this step only after you have confirmed that both instances are 
 &lt;p&gt;The presentation focuses around the code for our solution and we also cover how to set up a test environment both locally and in the cloud. While building our solution using Spring Boot and Spring for Apache Hadoop we’ll cover how this app can be integrated in a larger context such as Spring Cloud Stream and Spring Cloud Data Flow. We will also discus configuration solutions for running our app in a variety of environments.&lt;/p&gt;
 &lt;p&gt;After attending this talk you will have an understanding of how a combination of Spring projects can help build Big Data solutions that incorporate and orchestrate many diverse technologies. You will also better understand how these solutions can be built to run in a cloud environment as well as locally on your development laptop.&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/yqRaZE-hXOQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
-  </entry>
-  <entry>
-    <title>SpringOne Platform 2016 Replay:  Building resilient and evolutionary data microservices</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/02/06/springone-platform-2016-replay-building-resilient-and-evolutionary-data-microservices" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2017-02-06:2829</id>
-    <updated>2017-02-06T16:02:00Z</updated>
-    <content type="html">&lt;p&gt;Recorded at SpringOne Platform 2016.&lt;br/&gt;Speaker: Vinicius Carvalho&lt;br/&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/building-resilient-and-evolutionary-data-microservices"&gt;http://www.slideshare.net/SpringCentral/building-resilient-and-evolutionary-data-microservices&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;How can we build data pipelines that are resilient to change? Data usually outlives application code, and we have to be prepared to deploy streams that can cope with the evolution of that data that is in motion. This talk will discuss the approach and supporting patterns to write resilient data microservices with Spring Cloud Stream and Spring Cloud Dataflow. We will discuss the role of a centralized Schema repository, and how can we work with different data models and protocols to achieve schema evolution. A centralized schema service will also help us understand what kind of data is currently being served and consumed by the different parts of our distributed system.&lt;/p&gt;
-&lt;p&gt;Samples for the presentation can be found here: &lt;a href="https://github.com/viniciusccarvalho/schema-evolution-samples"&gt;https://github.com/viniciusccarvalho/schema-evolution-samples&lt;/a&gt;&lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/z9JRj7hddSQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring for Apache Kafka 1.1.3 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/02/06/spring-for-apache-kafka-1-1-3-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Artem Bilan</name>
-    </author>
-    <id>tag:spring.io,2017-02-06:2828</id>
-    <updated>2017-02-06T16:01:56Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;It is my pleasure to announce that the Spring for Apache Kafka &lt;a href="https://github.com/spring-projects/spring-kafka/milestone/14?closed=1"&gt;1.1.3&lt;/a&gt; maintenance release &lt;a href="http://projects.spring.io/spring-kafka/"&gt;is available now&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;As usual, thanks to the community for any feedback and contribution as always.
-Looking forward for more!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This release contains several bug fixes, including proper offset commit handling when using a &lt;code&gt;BatchListener&lt;/code&gt;; therefore an upgrade is highly recommended.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Right now &lt;code&gt;master&lt;/code&gt; has been switched to the version &lt;code&gt;2.0&lt;/code&gt; for Java 8 and Spring Framework 5.0 code base.
-We have some plans for high-level API for &lt;a href="https://kafka.apache.org/documentation/streams"&gt;Kafka Streams&lt;/a&gt; and &lt;a href="https://github.com/reactor/reactor-kafka"&gt;Reactor Kafka&lt;/a&gt; support.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-kafka/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka"&gt;GitHub&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-kafka"&gt;Help&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-kafka/reference/htmlsingle/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</content>
   </entry>
 </feed>
