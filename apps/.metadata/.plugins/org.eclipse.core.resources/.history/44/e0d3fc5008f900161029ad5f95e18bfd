@@ -1,0 +1,21 @@
+package fr.pizzeria.objet;
+
+public class Pizza {
+	private int id;
+	private String code;
+	private String nom;
+	private double prix;
+	private static int nbPizzas;
+
+	public Pizza(int id, String code, String nom, double prix) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.nom = nom;
+		this.prix = prix;
+	}
+
+	public void printPizza() {
+		System.out.println(codePizza + " - " + nomPizza + " (" + prixPizza + " €)");
+	}
+}

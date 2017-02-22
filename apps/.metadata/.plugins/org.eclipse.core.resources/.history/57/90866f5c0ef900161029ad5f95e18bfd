@@ -1,0 +1,68 @@
+package fr.pizzeria.ihm;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.model.Pizza;
+
+public class Menu {
+	private static Scanner scan;
+	private List<Option> listeOptions;
+	private PizzaDao dao;
+
+	public List<Option> getListe() {
+		return listeOptions;
+	}
+
+	public void setListe(List<Option> liste) {
+		this.listeOptions = liste;
+	}
+
+	public Menu(PizzaDao dao) {
+		listeOptions = new ArrayList<Option>();
+		listeOptions.add(new OptionLister());
+		listeOptions.add(new OptionAjouter());
+		listeOptions.add(new OptionMAJ());
+		listeOptions.add(new OptionSuppr());
+	}
+
+	public void showMenu() {
+		System.out.println();
+		System.out.println("***** Pizzeria Administration *****");
+		for (Option opt : listeOptions) {
+			System.out.println(opt.toString());
+		}
+		System.out.println("99 -> Sortir");
+		System.out.println();
+	}
+
+	public void execute() {
+		scan = new Scanner(System.in);
+		int reponseUser = 0;
+		boolean scanError;
+
+		while (reponseUser != 99) {
+
+			for (Option opt : listeOptions) {
+				if (opt.getnumChoix() == reponseUser) {
+					opt.execute();
+				}
+			}
+			showMenu();
+
+			// get input
+			scanError = false;
+			while (!scanError) {
+				try {
+					reponseUser = scan.nextInt();
+					scanError = true;
+				} catch (Exception e) {
+					System.out.println("Erreur : veuillez entrer un entier :");
+					scan.next();
+				}
+			}
+		}
+	}
+}

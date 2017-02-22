@@ -1,0 +1,63 @@
+package fr.pizzeria.objet;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Menu {
+	private List<Option> liste;
+	private static Scanner scan;
+
+	public List<Option> getListe() {
+		return liste;
+	}
+
+	public void setListe(List<Option> liste) {
+		this.liste = liste;
+	}
+
+	public Menu() {
+		liste = new ArrayList<Option>();
+		liste.add(new OptionLister());
+		liste.add(new OptionAjouter());
+		liste.add(new OptionMAJ());
+		liste.add(new OptionSuppr());
+	}
+
+	public void showMenu() {
+		System.out.println("***** Pizzeria Administration *****");
+		for (Option opt : liste) {
+			opt.print();
+		}
+		System.out.println("99 -> Sortir");
+	}
+
+	public void execute() {
+		scan = new Scanner(System.in);
+		int reponseUser = 0;
+		boolean scanError;
+
+		while (reponseUser != 99) {
+
+			for (Option opt : liste) {
+				if (opt.getnumChoix() == reponseUser) {
+					opt.execute();
+				}
+			}
+			System.out.println();
+			showMenu();
+			System.out.println();
+			// get input
+			scanError = false;
+			while (!scanError) {
+				try {
+					reponseUser = scan.nextInt();
+					scanError = true;
+				} catch (Exception e) {
+					System.out.println("Erreur : veuillez entrer un entier :");
+					scan.next();
+				}
+			}
+		}
+	}
+}

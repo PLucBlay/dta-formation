@@ -1,0 +1,44 @@
+package fr.pizzeria.ihm;
+
+import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.model.Pizza;
+
+public class OptionMAJ extends Option {
+
+	public OptionMAJ() {
+		super();
+		this.numChoix = 3;
+		this.contenuOption = "Mettre à jour une pizza";
+	}
+
+	@Override
+	public void execute(PizzaDao dao) {
+
+		System.out.println("Veuillez saisir le code de la pizza à modifier : ");
+		String codeModif = PizzaDao.getScanner().next();
+		System.out.println("Veuillez saisir le nouveau code de la pizza : ");
+		String codePizza = PizzaDao.getScanner().next();
+		System.out.println("Veuillez saisir le nom (sans espace) : ");
+		String nomPizza = PizzaDao.getScanner().next();
+		System.out.println("Veuillez saisir le prix : ");
+		boolean scanError = false;
+		double prixPizza = -1.0;
+		while (!scanError) {
+			try {
+				prixPizza = PizzaDao.getScanner().nextDouble();
+				scanError = true;
+			} catch (Exception e) {
+				System.out.println("Erreur : veuillez entrer un nombre :");
+				PizzaDao.getScanner().next();
+			}
+		}
+		dao.updatePizza(codeModif, new Pizza(codePizza, nomPizza, prixPizza));
+
+		if (dao.deletePizza(PizzaDao.getScanner().next())) {
+			System.out.println("Mise à jour réussie !");
+		} else {
+			System.out.println("Mise à jour echouée ! (TRY AGAIN !)");
+		}
+	}
+
+}

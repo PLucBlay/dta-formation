@@ -1,0 +1,52 @@
+package fr.pizzeria.dao;
+
+import java.util.List;
+import java.util.Scanner;
+
+import fr.pizzeria.model.Pizza;
+
+public class PizzaDao implements IPizzaDao {
+	private List<Pizza> listePizzas;
+	private static Scanner scan;
+
+	@Override
+	public List<Pizza> findAllPizzas() {
+		return listePizzas;
+	}
+
+	@Override
+	public boolean saveNewPizza(Pizza pizza) {
+		return listePizzas.add(pizza);
+	}
+
+	@Override
+	public boolean updatePizza(String codePizza, Pizza pizza) {
+		for (Pizza piz : listePizzas) {
+			if (piz.getCode().equals(codePizza)) {
+				listePizzas.set(listePizzas.indexOf(piz),pizza);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deletePizza(String codePizza) {
+		for (Pizza piz : listePizzas) {
+			if (piz.getCode().equals(codePizza)) {
+				listePizzas.remove(piz);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public PizzaDao(List<Pizza> listePizzas) {
+		scan = new Scanner(System.in);
+		this.listePizzas = listePizzas;
+	}
+
+	public static Scanner getScanner() {
+		return scan;
+	}
+}

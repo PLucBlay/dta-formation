@@ -1,0 +1,19 @@
+package fr.pizzeria.ihm;
+
+import fr.pizzeria.dao.PizzaDao;
+
+public class OptionAjouter extends Option {
+
+	public OptionAjouter() {
+		super();
+		this.numChoix = 2;
+		this.contenuOption = "Ajouter une nouvelle pizza";
+	}
+
+	@Override
+	public void execute(PizzaDao dao) {
+		System.out.println("Executed Lister!");
+
+	}
+
+}

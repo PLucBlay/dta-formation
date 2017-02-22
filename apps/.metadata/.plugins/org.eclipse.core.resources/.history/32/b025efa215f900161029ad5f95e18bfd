@@ -1,0 +1,27 @@
+package fr.pizzeria.ihm;
+
+import java.util.Scanner;
+
+import fr.pizzeria.dao.PizzaDao;
+
+public class OptionSuppr extends Option {
+	private static Scanner scan;
+
+	public OptionSuppr() {
+		super();
+		this.numChoix = 4;
+		this.contenuOption = "Supprimer une pizza";
+	}
+
+	@Override
+	public void execute(PizzaDao dao) {
+		System.out.println("Executed Suppr!");
+		if (dao.deletePizza(scan.next())) {
+			System.out.println("Suppression réussie !");
+		} else {
+			System.out.println("Suppression echouée ! (TRY AGAIN !)");
+		}
+
+	}
+
+}

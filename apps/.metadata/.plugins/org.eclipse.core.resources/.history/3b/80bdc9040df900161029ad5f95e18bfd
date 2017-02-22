@@ -1,0 +1,18 @@
+package fr.pizzeria.model;
+
+public class OptionAjouter extends Option {
+
+	public OptionAjouter() {
+		super();
+		this.numChoix = 2;
+		this.contenuOption = "Ajouter une nouvelle pizza";
+	}
+
+	@Override
+	public boolean execute() {
+		System.out.println("Execute Lister!");
+		return true;
+
+	}
+
+}

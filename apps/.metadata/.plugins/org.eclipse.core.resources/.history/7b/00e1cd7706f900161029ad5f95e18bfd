@@ -1,0 +1,37 @@
+package fr.pizzeria.objet;
+
+public class Pizza {
+	private String codePizza;
+	private String nomPizza;
+	private String prixPizza;
+
+	public String getCodePizza() {
+		return codePizza;
+	}
+
+	public void setCodePizza(String codePizza) {
+		this.codePizza = codePizza;
+	}
+
+	public String getNomPizza() {
+		return nomPizza;
+	}
+
+	public void setNomPizza(String nomPizza) {
+		this.nomPizza = nomPizza;
+	}
+
+	public String getPrixPizza() {
+		return prixPizza;
+	}
+
+	public void setPrixPizza(String prixPizza) {
+		this.prixPizza = prixPizza;
+	}
+
+	public Pizza(String codePizza, String nomPizza, String prixPizza) {
+		this.codePizza = codePizza;
+		this.nomPizza = nomPizza;
+		this.prixPizza = prixPizza;
+	}
+}

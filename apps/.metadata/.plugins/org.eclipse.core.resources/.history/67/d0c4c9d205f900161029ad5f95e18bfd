@@ -1,0 +1,13 @@
+package fr.pizzeria.objet;
+
+import java.util.Scanner;
+
+public class PizzeriaAdminConsoleApp {
+
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

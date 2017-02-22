@@ -1,0 +1,10 @@
+package fr.pizzeria.objet;
+
+public class PizzeriaAdminConsoleAppObjet {
+
+	public static void main(String[] args) {
+		Menu menu = new Menu();
+		menu.execute();
+	}
+
+}

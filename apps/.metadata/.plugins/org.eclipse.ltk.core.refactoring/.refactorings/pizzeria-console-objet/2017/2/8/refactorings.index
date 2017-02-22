@@ -1,3 +1,11 @@
 1487763552722	Encapsulate field 'liste'
 1487769896281	Convert local variable 'scan' to field
 1487771091209	Rename package 'fr.pizzeria.console'
+1487771778023	Rename field 'liste'
+1487773314764	Rename package 'fr.pizzeria.objet'
+1487773359543	Move compilation unit
+1487774499408	Move compilation units
+1487774521628	Delete element
+1487774572132	Rename type 'PizzaDAO'
+1487775036718	Encapsulate field 'listePizzas'
+1487777402275	Encapsulate field 'scan'
