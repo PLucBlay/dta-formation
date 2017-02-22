@@ -1,0 +1,16 @@
+package fr.pizzeria.console;
+
+public class OptionMAJ extends Option {
+
+	public OptionMAJ() {
+		super();
+		this.numChoix = 2;
+		this.contenuOption = "Ajouter une nouvelle pizza";
+	}
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

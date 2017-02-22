@@ -1,0 +1,30 @@
+package fr.pizzeria.console;
+
+import java.util.List;
+
+public class Menu {
+	private List<Option> liste;
+
+	public List<Option> getListe() {
+		return liste;
+	}
+
+	public void setListe(List<Option> liste) {
+		this.liste = liste;
+	}
+
+	public Menu() {
+		liste.add(new Option(1, "Lister les pizzas"));
+		liste.add(new Option(2, "Ajouter une nouvelle pizza"));
+		liste.add(new Option(3, "Mettre à jour un pizza"));
+		liste.add(new Option(4, "Supprimer une pizza"));
+		liste.add(new Option(99, "Sortir"));
+	}
+
+	public void showMenu() {
+		System.out.println("***** Pizzeria Administration *****");
+		for (Option opt : liste) {
+			System.out.println(opt.getnumChoix() + " -> " + opt.getContenuOption());
+		}
+	}
+}

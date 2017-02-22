@@ -1,0 +1,11 @@
+package fr.pizzeria.console;
+
+public class OptionLister extends Option{
+
+	@Override
+	public void execute() {
+		System.out.println("Execute Lister!");
+		
+	}
+
+}
