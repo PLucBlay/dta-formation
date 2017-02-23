@@ -1,7 +1,0 @@
-package fr.pizzeria.console;
-
-public class Pizza {
-	private String codePizza;
-	private String nomPizza;
-	private String prixPizza;
-}
