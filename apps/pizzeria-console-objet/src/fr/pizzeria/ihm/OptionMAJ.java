@@ -1,7 +1,7 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.Pizza;
 
 public class OptionMAJ extends Option {
@@ -43,7 +43,7 @@ public class OptionMAJ extends Option {
 			// post gestion exception :
 			try {
 				dao.updatePizza(codeModif, new Pizza(codePizza, nomPizza, prixPizza));
-			} catch (UpdatePizzaException e) {
+			} catch (StockageException e) {
 				System.out.println(e);
 			}
 			/*

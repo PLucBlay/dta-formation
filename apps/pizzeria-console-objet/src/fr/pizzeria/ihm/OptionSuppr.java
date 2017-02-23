@@ -1,7 +1,7 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.exception.DeletePizzaException;
+import fr.pizzeria.exception.StockageException;
 
 public class OptionSuppr extends Option {
 
@@ -17,7 +17,7 @@ public class OptionSuppr extends Option {
 		// post gestion exceptions
 		try {
 			dao.deletePizza(PizzaDao.getScanner().next());
-		} catch (DeletePizzaException e) {
+		} catch (StockageException e) {
 			System.out.println(e);
 		}
 		/*
