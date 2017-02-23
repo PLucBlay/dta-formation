@@ -1,6 +1,7 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.DeletePizzaException;
 
 public class OptionSuppr extends Option {
 
@@ -13,11 +14,19 @@ public class OptionSuppr extends Option {
 	@Override
 	public void execute(PizzaDao dao) {
 		System.out.println("Veuillez saisir le code de la pizza à supprimer : ");
-		if (dao.deletePizza(PizzaDao.getScanner().next())) {
-			System.out.println("Suppression réussie !");
-		} else {
-			System.out.println("Suppression echouée ! (TRY AGAIN !)");
+		// post gestion exceptions
+		try {
+			dao.deletePizza(PizzaDao.getScanner().next());
+		} catch (DeletePizzaException e) {
+			System.out.println(e);
 		}
+		/*
+		 * pré gestion exceptions
+		 * 
+		 * if (dao.deletePizza(PizzaDao.getScanner().next())) {
+		 * System.out.println("Suppression réussie !"); } else {
+		 * System.out.println("Suppression echouée ! (TRY AGAIN !)"); }
+		 */
 
 	}
 

@@ -1,6 +1,7 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.Pizza;
 
 public class OptionAjouter extends Option {
@@ -29,11 +30,21 @@ public class OptionAjouter extends Option {
 				PizzaDao.getScanner().next();
 			}
 		}
-		if (dao.saveNewPizza(new Pizza(codePizza, nomPizza, prixPizza))) {
+		// post exception
+		try {
+			dao.saveNewPizza(new Pizza(codePizza, nomPizza, prixPizza));
 			System.out.println("Mise à jour réussie !");
-		} else {
-			System.out.println("Mise à jour echouée !(C'est possible de raté ça finalement...");
+		} catch (SavePizzaException e) {
+			System.out.println(e);
 		}
+		/*
+		 * pré gestion exception
+		 * 
+		 * if (dao.saveNewPizza(new Pizza(codePizza, nomPizza, prixPizza))) {
+		 * System.out.println("Mise à jour réussie !"); } else { System.out.
+		 * println("Mise à jour echouée !(C'est possible de raté ça finalement..."
+		 * ); }
+		 */
 	}
 
 }
