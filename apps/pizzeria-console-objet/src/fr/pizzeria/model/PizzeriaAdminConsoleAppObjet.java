@@ -23,6 +23,7 @@ public class PizzeriaAdminConsoleAppObjet {
 		PizzaDao dao = new PizzaDao(listePizzas, scan);
 		Menu menu = new Menu(dao);
 		menu.execute();
+		scan.close();
 	}
 
 }

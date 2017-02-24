@@ -3,12 +3,12 @@ package fr.pizzeria.dao;
 import java.util.List;
 import java.util.Scanner;
 
-import fr.pizzeria.exception.DeletePizzaException;
-import fr.pizzeria.exception.SavePizzaException;
-import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.exception.DeleteException;
+import fr.pizzeria.exception.SaveException;
+import fr.pizzeria.exception.UpdateException;
 import fr.pizzeria.model.Pizza;
 
-public class PizzaDao implements IDao<Pizza> {
+public class PizzaDao implements IDao<Pizza, String> {
 	private List<Pizza> listePizzas;
 	private Scanner scan;
 
@@ -23,29 +23,29 @@ public class PizzaDao implements IDao<Pizza> {
 	}
 
 	@Override
-	public void saveNew(Pizza pizza) throws SavePizzaException {
+	public void saveNew(Pizza pizza) throws SaveException {
 		try {
 			listePizzas.add(pizza);
 		} catch (Exception e) {
-			throw new SavePizzaException();
+			throw new SaveException();
 		}
 	}
 
 	@Override
-	public void update(String codePizza, Pizza pizza) throws UpdatePizzaException {
+	public void update(String codePizza, Pizza pizza) throws UpdateException {
 		if (exist(codePizza)) {
 			listePizzas.set(listePizzas.indexOf(get(codePizza)), pizza);
 		} else {
-			throw new UpdatePizzaException();
+			throw new UpdateException();
 		}
 	}
 
 	@Override
-	public void delete(String codePizza) throws DeletePizzaException {
+	public void delete(String codePizza) throws DeleteException {
 		if (exist(codePizza)) {
 			listePizzas.remove(get(codePizza));
 		} else {
-			throw new DeletePizzaException();
+			throw new DeleteException();
 		}
 	}
 
