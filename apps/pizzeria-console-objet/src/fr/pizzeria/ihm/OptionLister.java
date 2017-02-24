@@ -9,7 +9,6 @@ public class OptionLister extends Option {
 
 	public OptionLister() {
 		super();
-		this.numChoix = 1;
 		this.contenuOption = "Lister les pizzas";
 	}
 

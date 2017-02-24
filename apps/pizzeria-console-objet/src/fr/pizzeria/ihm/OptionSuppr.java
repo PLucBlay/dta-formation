@@ -7,7 +7,6 @@ public class OptionSuppr extends Option {
 
 	public OptionSuppr() {
 		super();
-		this.numChoix = 4;
 		this.contenuOption = "Supprimer une pizza";
 	}
 

@@ -8,7 +8,6 @@ public class OptionMAJ extends Option {
 
 	public OptionMAJ() {
 		super();
-		this.numChoix = 3;
 		this.contenuOption = "Mettre à jour une pizza";
 	}
 
