@@ -8,7 +8,7 @@ import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
-public class PizzaDao implements IPizzaDao {
+public class PizzaDao implements IDao<Pizza> {
 	private List<Pizza> listePizzas;
 	private static Scanner scan;
 
@@ -18,12 +18,12 @@ public class PizzaDao implements IPizzaDao {
 	}
 
 	@Override
-	public List<Pizza> findAllPizzas() {
+	public List<Pizza> findAll() {
 		return listePizzas;
 	}
 
 	@Override
-	public void saveNewPizza(Pizza pizza) throws SavePizzaException {
+	public void saveNew(Pizza pizza) throws SavePizzaException {
 		try {
 			listePizzas.add(pizza);
 		} catch (Exception e) {
@@ -32,27 +32,28 @@ public class PizzaDao implements IPizzaDao {
 	}
 
 	@Override
-	public void updatePizza(String codePizza, Pizza pizza) throws UpdatePizzaException {
-		if (existPizza(codePizza)) {
-			listePizzas.set(listePizzas.indexOf(getPizza(codePizza)), pizza);
+	public void update(String codePizza, Pizza pizza) throws UpdatePizzaException {
+		if (exist(codePizza)) {
+			listePizzas.set(listePizzas.indexOf(get(codePizza)), pizza);
 		} else {
 			throw new UpdatePizzaException();
 		}
 	}
 
 	@Override
-	public void deletePizza(String codePizza) throws DeletePizzaException {
-		if (existPizza(codePizza)) {
-			listePizzas.remove(getPizza(codePizza));
+	public void delete(String codePizza) throws DeletePizzaException {
+		if (exist(codePizza)) {
+			listePizzas.remove(get(codePizza));
+		} else {
+			throw new DeletePizzaException();
 		}
-		throw new DeletePizzaException();
 	}
 
 	public static Scanner getScanner() {
 		return scan;
 	}
 
-	public boolean existPizza(String codePizza) {
+	public boolean exist(String codePizza) {
 		for (Pizza piz : listePizzas) {
 			if (piz.getCode().equals(codePizza)) {
 				return true;
@@ -61,7 +62,7 @@ public class PizzaDao implements IPizzaDao {
 		return false;
 	}
 
-	public Pizza getPizza(String codePizza) {
+	public Pizza get(String codePizza) {
 		for (Pizza piz : listePizzas) {
 			if (piz.getCode().equals(codePizza)) {
 				return piz;

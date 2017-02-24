@@ -20,7 +20,7 @@ public class OptionMAJ extends Option {
 		do {
 			System.out.println("Veuillez saisir le code de la pizza à modifier (99 pour sortir) : ");
 			codeModif = PizzaDao.getScanner().next();
-		} while ((!codeModif.equals("99")) && !(dao.existPizza(codeModif)));
+		} while ((!codeModif.equals("99")) && !(dao.exist(codeModif)));
 
 		// si !99 on continue sinon fin d'execute
 		if (!codeModif.equals("99")) {
@@ -42,7 +42,7 @@ public class OptionMAJ extends Option {
 			}
 			// post gestion exception :
 			try {
-				dao.updatePizza(codeModif, new Pizza(codePizza, nomPizza, prixPizza));
+				dao.update(codeModif, new Pizza(codePizza, nomPizza, prixPizza));
 			} catch (StockageException e) {
 				System.out.println(e);
 			}

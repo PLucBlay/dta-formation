@@ -16,7 +16,7 @@ public class OptionSuppr extends Option {
 		System.out.println("Veuillez saisir le code de la pizza à supprimer : ");
 		// post gestion exceptions
 		try {
-			dao.deletePizza(PizzaDao.getScanner().next());
+			dao.delete(PizzaDao.getScanner().next());
 		} catch (StockageException e) {
 			System.out.println(e);
 		}

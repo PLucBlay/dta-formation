@@ -32,7 +32,7 @@ public class OptionAjouter extends Option {
 		}
 		// post exception
 		try {
-			dao.saveNewPizza(new Pizza(codePizza, nomPizza, prixPizza));
+			dao.saveNew(new Pizza(codePizza, nomPizza, prixPizza));
 			System.out.println("Mise à jour réussie !");
 		} catch (StockageException e) {
 			System.out.println(e);

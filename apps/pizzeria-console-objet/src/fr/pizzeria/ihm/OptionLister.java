@@ -15,7 +15,7 @@ public class OptionLister extends Option {
 
 	@Override
 	public void execute(PizzaDao dao) {
-		List<Pizza> list = dao.findAllPizzas();
+		List<Pizza> list = dao.findAll();
 		for (Pizza piz : list) {
 			System.out.println(piz);
 		}
