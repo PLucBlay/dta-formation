@@ -38,7 +38,7 @@ public class Menu {
 	}
 
 	public void execute() {
-		PizzaDao.getScanner();
+		dao.getScanner();
 		int reponseUser = 0;
 		boolean scanError;
 
@@ -55,11 +55,11 @@ public class Menu {
 			scanError = false;
 			while (!scanError) {
 				try {
-					reponseUser = PizzaDao.getScanner().nextInt();
+					reponseUser = dao.getScanner().nextInt();
 					scanError = true;
 				} catch (Exception e) {
 					System.out.println("Erreur : veuillez entrer un entier :");
-					PizzaDao.getScanner().next();
+					dao.getScanner().next();
 				}
 			}
 		}

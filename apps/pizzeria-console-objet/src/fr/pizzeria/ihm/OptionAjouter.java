@@ -15,19 +15,19 @@ public class OptionAjouter extends Option {
 	@Override
 	public void execute(PizzaDao dao) {
 		System.out.println("Veuillez saisir le code : ");
-		String codePizza = PizzaDao.getScanner().next();
+		String codePizza = dao.getScanner().next();
 		System.out.println("Veuillez saisir le nom (sans espace) : ");
-		String nomPizza = PizzaDao.getScanner().next();
+		String nomPizza = dao.getScanner().next();
 		System.out.println("Veuillez saisir le prix : ");
 		boolean scanError = false;
 		double prixPizza = -1.0;
 		while (!scanError) {
 			try {
-				prixPizza = PizzaDao.getScanner().nextDouble();
+				prixPizza = dao.getScanner().nextDouble();
 				scanError = true;
 			} catch (Exception e) {
 				System.out.println("Erreur : veuillez entrer un nombre :");
-				PizzaDao.getScanner().next();
+				dao.getScanner().next();
 			}
 		}
 		// post exception

@@ -2,6 +2,7 @@ package fr.pizzeria.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.ihm.Menu;
@@ -18,7 +19,8 @@ public class PizzeriaAdminConsoleAppObjet {
 		listePizzas.add(new Pizza("SAV", "La savoyarde", 13.00));
 		listePizzas.add(new Pizza("ORI", "L'orientale", 13.50));
 		listePizzas.add(new Pizza("IND", "L'indienne", 14.00));
-		PizzaDao dao = new PizzaDao(listePizzas);
+		Scanner scan = new Scanner(System.in);
+		PizzaDao dao = new PizzaDao(listePizzas, scan);
 		Menu menu = new Menu(dao);
 		menu.execute();
 	}

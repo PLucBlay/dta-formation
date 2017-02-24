@@ -10,10 +10,10 @@ import fr.pizzeria.model.Pizza;
 
 public class PizzaDao implements IDao<Pizza> {
 	private List<Pizza> listePizzas;
-	private static Scanner scan;
+	private Scanner scan;
 
-	public PizzaDao(List<Pizza> listePizzas) {
-		scan = new Scanner(System.in);
+	public PizzaDao(List<Pizza> listePizzas, Scanner scan) {
+		this.scan = scan;
 		this.listePizzas = listePizzas;
 	}
 
@@ -49,7 +49,7 @@ public class PizzaDao implements IDao<Pizza> {
 		}
 	}
 
-	public static Scanner getScanner() {
+	public Scanner getScanner() {
 		return scan;
 	}
 

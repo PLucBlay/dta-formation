@@ -19,25 +19,25 @@ public class OptionMAJ extends Option {
 		String codeModif = "";
 		do {
 			System.out.println("Veuillez saisir le code de la pizza à modifier (99 pour sortir) : ");
-			codeModif = PizzaDao.getScanner().next();
+			codeModif = dao.getScanner().next();
 		} while ((!codeModif.equals("99")) && !(dao.exist(codeModif)));
 
 		// si !99 on continue sinon fin d'execute
 		if (!codeModif.equals("99")) {
 			System.out.println("Veuillez saisir le nouveau code de la pizza : ");
-			String codePizza = PizzaDao.getScanner().next();
+			String codePizza = dao.getScanner().next();
 			System.out.println("Veuillez saisir le nom (sans espace) : ");
-			String nomPizza = PizzaDao.getScanner().next();
+			String nomPizza = dao.getScanner().next();
 			System.out.println("Veuillez saisir le prix : ");
 			boolean scanError = false;
 			double prixPizza = -1.0;
 			while (!scanError) {
 				try {
-					prixPizza = PizzaDao.getScanner().nextDouble();
+					prixPizza = dao.getScanner().nextDouble();
 					scanError = true;
 				} catch (Exception e) {
 					System.out.println("Erreur : veuillez entrer un nombre :");
-					PizzaDao.getScanner().next();
+					dao.getScanner().next();
 				}
 			}
 			// post gestion exception :
