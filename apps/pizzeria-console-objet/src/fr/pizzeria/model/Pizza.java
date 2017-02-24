@@ -5,6 +5,7 @@ public class Pizza {
 	private String code;
 	private String nom;
 	private double prix;
+	private CategoriePizza categorie;
 	private static int nbPizzas = 0;
 	private static int lastId = 0;
 
@@ -44,16 +45,25 @@ public class Pizza {
 		return nbPizzas;
 	}
 
-	public Pizza(String code, String nom, double prix) {
+	public CategoriePizza getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(CategoriePizza categorie) {
+		this.categorie = categorie;
+	}
+
+	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
 		super();
 		this.id = lastId++;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
+		this.categorie = categorie;
 		nbPizzas++;
 	}
 
 	public String toString() {
-		return code + " - " + nom + " (" + prix + " €)";
+		return code + " - " + nom + "(" + categorie + ")" + " (" + prix + " €)";
 	}
 }

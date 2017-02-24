@@ -2,6 +2,7 @@ package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.StockageException;
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class OptionMAJ extends Option {
@@ -39,9 +40,25 @@ public class OptionMAJ extends Option {
 					dao.getScanner().next();
 				}
 			}
+
+			// force categorie input
+			CategoriePizza categoriePizza = null;
+			String stringCategorie;
+			boolean isCategorie = false;
+			do {
+				System.out.println("Veuillez saisir le type (Viande,Sans_Viande,Poisson) : ");
+				stringCategorie = dao.getScanner().next();
+				try {
+					categoriePizza = CategoriePizza.valueOf(stringCategorie.toUpperCase());
+					isCategorie = true;
+				} catch (IllegalArgumentException e) {
+					System.out.println("Entrée non-valide.");
+				}
+			} while (!isCategorie);
+
 			// post gestion exception :
 			try {
-				dao.update(codeModif, new Pizza(codePizza, nomPizza, prixPizza));
+				dao.update(codeModif, new Pizza(codePizza, nomPizza, prixPizza, categoriePizza));
 			} catch (StockageException e) {
 				System.out.println(e);
 			}
