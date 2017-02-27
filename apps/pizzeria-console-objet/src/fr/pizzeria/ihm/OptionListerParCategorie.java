@@ -1,7 +1,6 @@
 package fr.pizzeria.ihm;
 
 import java.util.Comparator;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import fr.pizzeria.dao.PizzaDao;
@@ -16,10 +15,10 @@ public class OptionListerParCategorie extends Option {
 
 	@Override
 	public void execute(PizzaDao dao) {
-		List<Pizza> list = dao.findAll();
-		list.stream().sorted(Comparator.comparing(Pizza::getCategorie)).collect(Collectors.toList()).forEach(pizza -> {
-			System.out.println(pizza);
-		});
+		dao.findAll().stream().sorted(Comparator.comparing(Pizza::getCategorie)).collect(Collectors.toList())
+				.forEach(pizza -> {
+					System.out.println(pizza);
+				});
 	}
 
 }
