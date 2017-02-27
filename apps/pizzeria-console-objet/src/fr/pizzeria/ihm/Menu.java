@@ -20,9 +20,13 @@ public class Menu {
 	public Menu(PizzaDao dao) {
 		listeOptions = new LinkedHashMap<Integer, Option>();// maintain order
 		listeOptions.put(1, new OptionLister());
-		listeOptions.put(2, new OptionAjouter());
-		listeOptions.put(3, new OptionMAJ());
-		listeOptions.put(4, new OptionSuppr());
+		listeOptions.put(2, new OptionListerParCategorie());
+		listeOptions.put(3, new OptionPlusCher());
+		listeOptions.put(4, new OptionAjouter());
+		listeOptions.put(5, new OptionMAJ());
+		listeOptions.put(6, new OptionSuppr());
+		listeOptions.put(10, new OptionStockerVersFichier());
+		listeOptions.put(11, new OptionNettoyerFichiers());
 		listeOptions.put(99, new OptionExit());
 		this.dao = dao;
 

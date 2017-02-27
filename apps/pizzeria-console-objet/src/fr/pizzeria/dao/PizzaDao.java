@@ -1,5 +1,10 @@
 package fr.pizzeria.dao;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -69,5 +74,20 @@ public class PizzaDao implements IDao<Pizza, String> {
 			}
 		}
 		return null;
+	}
+
+	public void createFiles() {
+		List<Pizza> list = findAll();
+		list.stream().forEach(pizza -> {
+			try {
+				Files.write(Paths.get("data/" + pizza.getCode() + ".txt"), pizza.toString().getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+	}
+
+	public void clearFiles() {
+		Arrays.stream(new File("data/").listFiles()).forEach(File::delete);
 	}
 }
