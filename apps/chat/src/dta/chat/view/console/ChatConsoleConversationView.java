@@ -9,6 +9,7 @@ public class ChatConsoleConversationView extends ViewComposite {
 	@Override
 	public void print() {
 		System.out.println(HEADER);
+		System.out.println("Welcome : " + user);
 	}
 
 }
