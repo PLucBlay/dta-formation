@@ -25,7 +25,6 @@ public class ChatConsoleConversationView extends ViewComposite {
 
 	@Override
 	public void update(ChatObservable<ChatMessage> observable, ChatMessage cm) {
-		super.update(observable, cm);
 		printUpdate(cm);
 	}
 

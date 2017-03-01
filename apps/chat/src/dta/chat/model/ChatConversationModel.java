@@ -1,28 +1,17 @@
 package dta.chat.model;
 
 import dta.chat.model.observer.ChatObservable;
-import dta.chat.model.observer.ChatObserver;
 
 public class ChatConversationModel extends ChatObservable<ChatMessage> {
 
-	private ChatMessage cm = new ChatMessage();
+	private String login;
 
 	public void setLogin(String login) {
-		cm.setLogin(login);
-		notifyObservers(cm);
+		this.login = login;
+		notifyObservers(new ChatMessage(login, "Welcome"));
 	}
 
 	public void sendMessage(String msg) {
-		cm.setMsg(msg);
-		notifyObservers(cm);
+		notifyObservers(new ChatMessage(login, msg));
 	}
-
-	@Override
-	public void notifyObservers(ChatMessage cm) {
-		for (ChatObserver<ChatMessage> chatObserver : observers) {
-			this.cm = cm;
-			chatObserver.update(this, cm);
-		}
-	}
-
 }

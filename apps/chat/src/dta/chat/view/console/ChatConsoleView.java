@@ -3,6 +3,9 @@ package dta.chat.view.console;
 import java.util.List;
 import java.util.Scanner;
 
+import dta.chat.model.ChatMessage;
+import dta.chat.model.observer.ChatObservable;
+
 public class ChatConsoleView extends ViewComposite {
 	private Scanner scan;
 
@@ -22,5 +25,11 @@ public class ChatConsoleView extends ViewComposite {
 
 	public void setScanner(Scanner scan) {
 		this.scan = scan;
+	}
+
+	@Override
+	public void update(ChatObservable<ChatMessage> observable, ChatMessage obj) {
+		getChildren().forEach(view -> view.update(observable, obj));
+
 	}
 }

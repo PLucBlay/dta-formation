@@ -43,8 +43,6 @@ public abstract class ViewComposite implements ChatObserver<ChatMessage> {
 	}
 
 	@Override
-	public void update(ChatObservable<ChatMessage> observable, ChatMessage obj) {
-		children.forEach(view -> view.update(observable, obj));
-
+	public void update(ChatObservable<ChatMessage> chatObservable, ChatMessage cm) {
 	}
 }
