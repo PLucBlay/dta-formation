@@ -6,13 +6,21 @@ import java.util.Scanner;
 public class ChatConsoleView extends ViewComposite {
 	private Scanner scan;
 
-	public ChatConsoleView() {
+	public ChatConsoleView(Scanner sc) {
 		add(new ChatConsoleTitleView());
-		add(new ChatConsoleLoginView());
+		add(new ChatConsoleLoginView(sc));
 		add(new ChatConsoleConversationView());
 	}
 
 	public ChatConsoleView(List<ViewComposite> listeVC) {
 
+	}
+
+	public Scanner getScan() {
+		return scan;
+	}
+
+	public void setScan(Scanner scan) {
+		this.scan = scan;
 	}
 }

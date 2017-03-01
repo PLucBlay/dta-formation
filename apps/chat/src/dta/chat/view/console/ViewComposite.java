@@ -15,10 +15,6 @@ public abstract class ViewComposite {
 		children.add(vc);
 	}
 
-	public int count() {
-		return children.size();
-	}
-
 	public void print() {
 		for (ViewComposite child : children) {
 			child.print();

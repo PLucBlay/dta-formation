@@ -1,15 +1,15 @@
 package dta.chat;
 
+import java.util.Scanner;
+
 import dta.chat.view.console.ChatConsoleView;
 
 public class ChatClientApp {
 
-	public ChatClientApp() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public static void main(String[] args) {
-		ChatConsoleView c = new ChatConsoleView();
-		c.print();
+		try (Scanner scan = new Scanner(System.in)) {
+			ChatConsoleView c = new ChatConsoleView(scan);
+			c.print();
+		}
 	}
 }

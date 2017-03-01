@@ -1,14 +1,20 @@
 package dta.chat.view.console;
 
-public class ChatConsoleLoginView extends ViewComposite {
+import java.util.Scanner;
 
-	public ChatConsoleLoginView() {
+public class ChatConsoleLoginView extends ViewComposite {
+	private static final String HEADER = "== Authentification ==";
+	private Scanner sc;
+
+	public ChatConsoleLoginView(Scanner sc) {
+		this.sc = sc;
 	}
 
 	@Override
 	public void print() {
-		System.out.println("== Authentification ==");
+		System.out.println(HEADER);
 		System.out.println("Veuillez saisir votre login : ");
+		sc.nextLine();
 	}
 
 }
