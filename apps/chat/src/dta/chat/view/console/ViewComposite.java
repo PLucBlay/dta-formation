@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dta.chat.controller.ChatAuthController;
+import dta.chat.model.ChatMessage;
+import dta.chat.model.observer.ChatObservable;
+import dta.chat.model.observer.ChatObserver;
 
-public abstract class ViewComposite {
+public abstract class ViewComposite implements ChatObserver<ChatMessage> {
 
 	private List<ViewComposite> children = new ArrayList<>();
 	protected String user;
@@ -37,5 +40,11 @@ public abstract class ViewComposite {
 	public void setAuthController(ChatAuthController authController) {
 		this.authController = authController;
 		children.forEach(view -> view.setAuthController(authController));
+	}
+
+	@Override
+	public void update(ChatObservable<ChatMessage> observable, ChatMessage obj) {
+		children.forEach(view -> view.update(observable, obj));
+
 	}
 }
