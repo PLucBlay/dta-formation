@@ -7,7 +7,7 @@ import dta.chat.view.console.ChatConsoleView;
 
 public class ChatClientApp {
 
-	public static final String IP = "192.168.99.27";
+	public static final String IP = "localhost";// "192.168.99.31";
 	public static final int PORT = 1800;
 
 	public static void main(String[] args) {
@@ -20,6 +20,7 @@ public class ChatClientApp {
 			});
 			model.addObserver(c);
 			c.print();
+			model.printHistory();
 			model.startWriting(scan);
 		}
 	}

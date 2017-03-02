@@ -32,4 +32,21 @@ public class ChatMessage implements Serializable {
 		this.text = text;
 	}
 
+	public static ChatMessage decode(String[] data) {
+		if (data.length == 2) {
+			return new ChatMessage(data[0], data[1]);
+		} else {
+			return null;
+		}
+	}
+
+	public String encode() {
+		return login + "|||" + text;
+	}
+
+	@Override
+	public String toString() {
+		return login + " " + text;
+	}
+
 }
