@@ -7,15 +7,20 @@ import dta.chat.view.console.ChatConsoleView;
 
 public class ChatClientApp {
 
+	public static final String IP = "192.168.99.27";
+	public static final int PORT = 1800;
+
 	public static void main(String[] args) {
 		try (Scanner scan = new Scanner(System.in)) {
-			ChatConversationModel model = new ChatConversationModel();
+			ChatConversationModel model = new ChatConversationModel(IP, PORT);
 			ChatConsoleView c = new ChatConsoleView(scan);
-			c.setAuthController((login) -> c.setLogin(login));
+			c.setAuthController((login) -> {
+				c.setLogin(login);
+				model.setLogin(login);
+			});
 			model.addObserver(c);
 			c.print();
-			model.sendMessage("Bonjour");
-			model.sendMessage("C'est moi !");
+			model.startWriting(scan);
 		}
 	}
 }

@@ -16,11 +16,7 @@ public class ChatConsoleConversationView extends ViewComposite {
 	}
 
 	public void printUpdate(ChatMessage cm) {
-		if (cm.getLogin() == null) {
-			System.out.println(user + " " + cm.getMsg());
-		} else {
 			System.out.println(cm.getLogin() + " " + cm.getMsg());
-		}
 	}
 
 	@Override

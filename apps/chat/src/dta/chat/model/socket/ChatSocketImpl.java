@@ -5,17 +5,22 @@ import java.io.IOException;
 import dta.chat.exception.ChatClientException;
 import dta.chat.model.ChatMessage;
 
-public class ChatSocketImpl extends ClientSocket implements ChatSocket {
+public class ChatSocketImpl implements ChatSocket {
 
-	public ChatSocketImpl(String hostname, Integer port) throws IOException {
-		super(hostname, port);
-		// TODO Auto-generated constructor stub
+	private ClientSocket client;
+
+	public ChatSocketImpl(String hostname, Integer port) {
+		try {
+			client = new ClientSocket(hostname, port);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void sendMessage(ChatMessage msg) throws ChatClientException {
 		try {
-			this.serverOuput.writeObject(obj);
+			client.sendObject(msg);
 		} catch (IOException e) {
 			throw new ChatClientException(e);
 		}
@@ -24,9 +29,18 @@ public class ChatSocketImpl extends ClientSocket implements ChatSocket {
 	@Override
 	public ChatMessage readMessage() throws ChatClientException {
 		try {
-			return (ChatMessage) this.serverInput.readObject();
+			return (ChatMessage) client.readObject();
 		} catch (ClassNotFoundException | IOException e) {
 			throw new ChatClientException(e);
+		}
+	}
+
+	@Override
+	public void close() {
+		try {
+			client.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 

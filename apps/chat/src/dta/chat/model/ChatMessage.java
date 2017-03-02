@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class ChatMessage implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 12L;
 	private String login;
-	private String msg;
+	private String text;
 
 	public ChatMessage() {
 	}
 
-	public ChatMessage(String login, String msg) {
+	public ChatMessage(String login, String text) {
 		this.login = login;
-		this.msg = msg;
+		this.text = text;
 	}
 
 	public String getLogin() {
@@ -25,11 +25,11 @@ public class ChatMessage implements Serializable {
 	}
 
 	public String getMsg() {
-		return msg;
+		return text;
 	}
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setMsg(String text) {
+		this.text = text;
 	}
 
 }
