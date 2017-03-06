@@ -18,6 +18,10 @@
 			<groupId>pizzeria</groupId>
 			<artifactId>pizzeria-dao</artifactId>
 		</dependency>
+			<dependency>
+				<groupId>org.reflections</groupId>
+				<artifactId>reflections</artifactId>
+			</dependency>
 	</dependencies>
 	<build>
 		<plugins>
