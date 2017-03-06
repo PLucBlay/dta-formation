@@ -1,4 +1,4 @@
-package fr.pizzeria.model;
+package pizzeria.pizzeria_model;
 
 import java.lang.reflect.Field;
 

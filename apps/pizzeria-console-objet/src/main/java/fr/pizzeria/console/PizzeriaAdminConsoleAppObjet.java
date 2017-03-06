@@ -1,4 +1,4 @@
-package fr.pizzeria.model;
+package fr.pizzeria.console;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.ihm.Menu;
+import fr.pizzeria.model.Client;
 
 public class PizzeriaAdminConsoleAppObjet {
 
