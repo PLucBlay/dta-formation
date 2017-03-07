@@ -2,6 +2,8 @@ package fr.pizzeria.ihm;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import fr.pizzeria.dao.PizzaDao;
 
@@ -58,6 +60,7 @@ public class Menu {
 					reponseUser = dao.getScanner().nextInt();
 					scanError = true;
 				} catch (Exception e) {
+					Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 					System.out.println("Erreur : veuillez entrer un entier :");
 					dao.getScanner().next();
 				}

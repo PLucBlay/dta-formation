@@ -19,8 +19,7 @@ public class ClientDao implements IDao<Client, Integer> {
 
 	@Override
 	public List<Client> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return listeClients;
 	}
 
 	@Override
@@ -35,8 +34,7 @@ public class ClientDao implements IDao<Client, Integer> {
 
 	@Override
 	public void update(Integer id, Client cli) throws UpdateException {
-		// TODO Auto-generated method stub
-
+		listeClients.add(id, cli);
 	}
 
 	@Override

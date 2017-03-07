@@ -23,7 +23,7 @@ public class PizzaDao implements IDao<Pizza, String> {
 
 	public PizzaDao(Scanner scan) {
 		this.scan = scan;
-		this.listePizzas = new ArrayList<Pizza>();
+		this.listePizzas = new ArrayList<>();
 		listePizzas.add(new Pizza("PEP", "La P�p�roni", 12.5, CategoriePizza.VIANDE));
 		listePizzas.add(new Pizza("MAR", "La Margherita", 14.00, CategoriePizza.VIANDE));
 		listePizzas.add(new Pizza("REI", "La Reine", 11.50, CategoriePizza.VIANDE));
