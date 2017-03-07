@@ -51,21 +51,12 @@ public class OptionAjouter extends Option {
 			}
 		} while (!isCategorie);
 
-		// post exception
 		try {
 			dao.saveNew(new Pizza(codePizza, nomPizza, prixPizza, categoriePizza));
 			System.out.println("Mise � jour r�ussie !");
 		} catch (StockageException e) {
 			System.out.println(e);
 		}
-		/*
-		 * pr� gestion exception
-		 * 
-		 * if (dao.saveNewPizza(new Pizza(codePizza, nomPizza, prixPizza))) {
-		 * System.out.println("Mise � jour r�ussie !"); } else { System.out.
-		 * println("Mise � jour echou�e !(C'est possible de rat� �a finalement..."
-		 * ); }
-		 */
 	}
 
 }
