@@ -107,28 +107,4 @@ public class PizzaDao implements IDao<Pizza, String> {
 	public void clearFiles() {
 		Arrays.stream(new File("data/").listFiles()).forEach(File::delete);
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null) {
-			return false;
-		}
-		if (obj == this) {
-			return true;
-		}
-		if (obj.getClass() != getClass()) {
-			return false;
-		}
-		PizzaDao compared = (PizzaDao) obj;
-		if (listePizzas.size() != compared.listePizzas.size()) {
-			return false;
-		}
-		for (int i = 0; i < listePizzas.size(); i++) {
-			if (listePizzas.get(i).equals(compared.listePizzas.get(i))) {
-				return false;
-			}
-		}
-		return true;
-	}
-
 }
