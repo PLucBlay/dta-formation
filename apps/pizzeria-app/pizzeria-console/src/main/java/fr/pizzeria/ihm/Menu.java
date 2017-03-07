@@ -9,16 +9,8 @@ public class Menu {
 	private Map<Integer, Option> listeOptions;
 	private PizzaDao dao;
 
-	public Map<Integer, Option> getListe() {
-		return listeOptions;
-	}
-
-	public void setListe(Map<Integer, Option> liste) {
-		this.listeOptions = liste;
-	}
-
 	public Menu(PizzaDao dao) {
-		listeOptions = new LinkedHashMap<Integer, Option>();// maintain order
+		listeOptions = new LinkedHashMap<>();// maintain order
 		listeOptions.put(1, new OptionLister());
 		listeOptions.put(2, new OptionListerParCategorie());
 		listeOptions.put(3, new OptionPlusCher());
@@ -29,7 +21,14 @@ public class Menu {
 		listeOptions.put(11, new OptionNettoyerFichiers());
 		listeOptions.put(99, new OptionExit());
 		this.dao = dao;
+	}
 
+	public Map<Integer, Option> getListe() {
+		return listeOptions;
+	}
+
+	public void setListe(Map<Integer, Option> liste) {
+		this.listeOptions = liste;
 	}
 
 	public void showMenu() {
