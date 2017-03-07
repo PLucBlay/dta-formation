@@ -82,9 +82,7 @@ public class Pizza {
 
 	@Override
 	public int hashCode() {
-		// you pick a hard-coded, randomly chosen, non-zero, odd number
-		// ideally different for each class
-		return new HashCodeBuilder(17, 37).append(code).append(nom).append(prix).toHashCode();
+		return new HashCodeBuilder(17, 37).append(code).append(prix).toHashCode();
 	}
 
 	@Override
@@ -99,7 +97,7 @@ public class Pizza {
 			return false;
 		}
 		Pizza rhs = (Pizza) obj;
-		return new EqualsBuilder().appendSuper(super.equals(obj)).append(code, rhs.code).append(nom, rhs.nom)
-				.append(prix, rhs.prix).isEquals();
+		return new EqualsBuilder().appendSuper(super.equals(obj)).append(code, rhs.code).append(prix, rhs.prix)
+				.isEquals();
 	}
 }

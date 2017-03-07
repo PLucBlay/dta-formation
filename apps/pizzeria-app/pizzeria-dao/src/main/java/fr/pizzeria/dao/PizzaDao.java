@@ -24,7 +24,7 @@ public class PizzaDao implements IDao<Pizza, String> {
 	public PizzaDao(Scanner scan) {
 		this.scan = scan;
 		this.listePizzas = new ArrayList<>();
-		listePizzas.add(new Pizza("PEP", "La P�p�roni", 12.5, CategoriePizza.VIANDE));
+		listePizzas.add(new Pizza("PEP", "La Pépéroni", 12.5, CategoriePizza.VIANDE));
 		listePizzas.add(new Pizza("MAR", "La Margherita", 14.00, CategoriePizza.VIANDE));
 		listePizzas.add(new Pizza("REI", "La Reine", 11.50, CategoriePizza.VIANDE));
 		listePizzas.add(new Pizza("FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));
@@ -41,10 +41,14 @@ public class PizzaDao implements IDao<Pizza, String> {
 
 	@Override
 	public void saveNew(Pizza pizza) throws SaveException {
-		try {
-			listePizzas.add(pizza);
-		} catch (Exception e) {
-			throw new SaveException(e);
+		if (pizza.getCode().isEmpty() || (pizza.getPrix() <= 0.0)) {
+			throw new SaveException("Erreur code ou prix non-valide.");
+		} else {
+			try {
+				listePizzas.add(pizza);
+			} catch (Exception e) {
+				throw new SaveException(e);
+			}
 		}
 	}
 
@@ -103,4 +107,28 @@ public class PizzaDao implements IDao<Pizza, String> {
 	public void clearFiles() {
 		Arrays.stream(new File("data/").listFiles()).forEach(File::delete);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+		if (obj.getClass() != getClass()) {
+			return false;
+		}
+		PizzaDao compared = (PizzaDao) obj;
+		if (listePizzas.size() != compared.listePizzas.size()) {
+			return false;
+		}
+		for (int i = 0; i < listePizzas.size(); i++) {
+			if (listePizzas.get(i).equals(compared.listePizzas.get(i))) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 }
