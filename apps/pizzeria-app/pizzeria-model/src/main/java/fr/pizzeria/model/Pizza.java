@@ -1,6 +1,8 @@
 package fr.pizzeria.model;
 
 import java.lang.reflect.Field;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -15,6 +17,15 @@ public class Pizza {
 	@ToString
 	private CategoriePizza categorie;
 	private static int nbPizzas = 0;
+
+	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
+		super();
+		this.code = code;
+		this.nom = nom;
+		this.prix = prix;
+		this.categorie = categorie;
+		nbPizzas++;
+	}
 
 	public String getCode() {
 		return code;
@@ -52,15 +63,6 @@ public class Pizza {
 		this.categorie = categorie;
 	}
 
-	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
-		super();
-		this.code = code;
-		this.nom = nom;
-		this.prix = prix;
-		this.categorie = categorie;
-		nbPizzas++;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
@@ -73,7 +75,7 @@ public class Pizza {
 				}
 			}
 		} catch (IllegalArgumentException | IllegalAccessException e) {
-			e.printStackTrace();
+			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 		}
 		return str.toString();
 	}

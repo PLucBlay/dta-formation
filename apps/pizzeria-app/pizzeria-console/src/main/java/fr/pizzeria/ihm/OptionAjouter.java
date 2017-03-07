@@ -1,5 +1,8 @@
 package fr.pizzeria.ihm;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.CategoriePizza;
@@ -26,6 +29,7 @@ public class OptionAjouter extends Option {
 				prixPizza = dao.getScanner().nextDouble();
 				scanError = true;
 			} catch (Exception e) {
+				Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 				System.out.println("Erreur : veuillez entrer un nombre :");
 				dao.getScanner().next();
 			}
@@ -42,23 +46,24 @@ public class OptionAjouter extends Option {
 				categoriePizza = CategoriePizza.valueOf(stringCategorie.toUpperCase());
 				isCategorie = true;
 			} catch (IllegalArgumentException e) {
-				System.out.println("Entrée non-valide.");
+				Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+				System.out.println("Entrï¿½e non-valide.");
 			}
 		} while (!isCategorie);
 
 		// post exception
 		try {
 			dao.saveNew(new Pizza(codePizza, nomPizza, prixPizza, categoriePizza));
-			System.out.println("Mise à jour réussie !");
+			System.out.println("Mise ï¿½ jour rï¿½ussie !");
 		} catch (StockageException e) {
 			System.out.println(e);
 		}
 		/*
-		 * pré gestion exception
+		 * prï¿½ gestion exception
 		 * 
 		 * if (dao.saveNewPizza(new Pizza(codePizza, nomPizza, prixPizza))) {
-		 * System.out.println("Mise à jour réussie !"); } else { System.out.
-		 * println("Mise à jour echouée !(C'est possible de raté ça finalement..."
+		 * System.out.println("Mise ï¿½ jour rï¿½ussie !"); } else { System.out.
+		 * println("Mise ï¿½ jour echouï¿½e !(C'est possible de ratï¿½ ï¿½a finalement..."
 		 * ); }
 		 */
 	}

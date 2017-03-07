@@ -9,6 +9,13 @@ public class Client {
 	private String prenom;
 	private Double solde;
 
+	public Client(int id, String nom, String prenom, Double solde) {
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.solde = solde;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -38,13 +45,6 @@ public class Client {
 	}
 
 	public void setSolde(Double solde) {
-		this.solde = solde;
-	}
-
-	public Client(int id, String nom, String prenom, Double solde) {
-		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
 		this.solde = solde;
 	}
 

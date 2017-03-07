@@ -10,15 +10,13 @@ public class OptionListerParCategorie extends Option {
 
 	public OptionListerParCategorie() {
 		super();
-		this.contenuOption = "Lister les pizzas par catégorie";
+		this.contenuOption = "Lister les pizzas par catï¿½gorie";
 	}
 
 	@Override
 	public void execute(PizzaDao dao) {
 		dao.findAll().stream().sorted(Comparator.comparing(Pizza::getCategorie)).collect(Collectors.toList())
-				.forEach(pizza -> {
-					System.out.println(pizza);
-				});
+				.forEach(pizza -> System.out.println(pizza));
 	}
 
 }

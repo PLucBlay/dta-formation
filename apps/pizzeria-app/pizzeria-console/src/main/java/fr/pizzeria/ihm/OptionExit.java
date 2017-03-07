@@ -11,7 +11,7 @@ public class OptionExit extends Option {
 
 	@Override
 	public void execute(PizzaDao dao) {
-		System.out.println("A Bientôt");
+		System.out.println("A Bientot");
 	}
 
 }

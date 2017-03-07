@@ -12,21 +12,11 @@ public class OptionSuppr extends Option {
 
 	@Override
 	public void execute(PizzaDao dao) {
-		System.out.println("Veuillez saisir le code de la pizza à supprimer : ");
-		// post gestion exceptions
+		System.out.println("Veuillez saisir le code de la pizza Ã  supprimer : ");
 		try {
 			dao.delete(dao.getScanner().next());
 		} catch (StockageException e) {
 			System.out.println(e);
 		}
-		/*
-		 * pré gestion exceptions
-		 * 
-		 * if (dao.deletePizza(PizzaDao.getScanner().next())) {
-		 * System.out.println("Suppression réussie !"); } else {
-		 * System.out.println("Suppression echouée ! (TRY AGAIN !)"); }
-		 */
-
 	}
-
 }

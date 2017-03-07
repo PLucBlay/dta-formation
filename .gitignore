@@ -1,4 +1,5 @@
 apps/.metadata
 apps/.recommenders
+apps/.sonarlint
 apps/servers
 apps/RemoteSystemsTempFiles

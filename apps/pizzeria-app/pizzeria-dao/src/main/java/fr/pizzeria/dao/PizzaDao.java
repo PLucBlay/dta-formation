@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import fr.pizzeria.exception.DeleteException;
 import fr.pizzeria.exception.SaveException;
@@ -22,7 +24,7 @@ public class PizzaDao implements IDao<Pizza, String> {
 	public PizzaDao(Scanner scan) {
 		this.scan = scan;
 		this.listePizzas = new ArrayList<Pizza>();
-		listePizzas.add(new Pizza("PEP", "La Pépéroni", 12.5, CategoriePizza.VIANDE));
+		listePizzas.add(new Pizza("PEP", "La Pï¿½pï¿½roni", 12.5, CategoriePizza.VIANDE));
 		listePizzas.add(new Pizza("MAR", "La Margherita", 14.00, CategoriePizza.VIANDE));
 		listePizzas.add(new Pizza("REI", "La Reine", 11.50, CategoriePizza.VIANDE));
 		listePizzas.add(new Pizza("FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));
@@ -42,7 +44,7 @@ public class PizzaDao implements IDao<Pizza, String> {
 		try {
 			listePizzas.add(pizza);
 		} catch (Exception e) {
-			throw new SaveException();
+			throw new SaveException(e);
 		}
 	}
 
@@ -68,6 +70,7 @@ public class PizzaDao implements IDao<Pizza, String> {
 		return scan;
 	}
 
+	@Override
 	public boolean exist(String codePizza) {
 		for (Pizza piz : listePizzas) {
 			if (piz.getCode().equals(codePizza)) {
@@ -92,7 +95,7 @@ public class PizzaDao implements IDao<Pizza, String> {
 			try {
 				Files.write(Paths.get("data/" + pizza.getCode() + ".txt"), pizza.toString().getBytes());
 			} catch (IOException e) {
-				e.printStackTrace();
+				Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 			}
 		});
 	}

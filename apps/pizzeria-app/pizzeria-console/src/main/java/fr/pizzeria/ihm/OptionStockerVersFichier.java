@@ -6,7 +6,7 @@ public class OptionStockerVersFichier extends Option {
 
 	public OptionStockerVersFichier() {
 		super();
-		this.contenuOption = "Génerer les fichiers correspondants à la liste actuelle";
+		this.contenuOption = "GÃ©nerer les fichiers correspondants Ã  la liste actuelle";
 	}
 
 	@Override

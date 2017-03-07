@@ -28,7 +28,7 @@ public class ClientDao implements IDao<Client, Integer> {
 		try {
 			listeClients.add(cli);
 		} catch (Exception e) {
-			throw new SaveException();
+			throw new SaveException(e);
 		}
 
 	}
