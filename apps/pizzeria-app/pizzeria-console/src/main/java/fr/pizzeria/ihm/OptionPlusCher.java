@@ -6,6 +6,10 @@ import java.util.List;
 import fr.pizzeria.dao.IDao;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class OptionPlusCher extends Option {
 
 	/**

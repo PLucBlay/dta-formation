@@ -7,6 +7,10 @@ import java.util.logging.Logger;
 
 import fr.pizzeria.dao.IDao;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class Menu {
 	private Map<Integer, Option> listeOptions;
 	private IDao dao;

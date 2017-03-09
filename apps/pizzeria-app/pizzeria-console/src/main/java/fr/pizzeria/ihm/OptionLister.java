@@ -5,8 +5,15 @@ import java.util.List;
 import fr.pizzeria.dao.IDao;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class OptionLister extends Option {
 
+	/**
+	 * 
+	 */
 	public OptionLister() {
 		super();
 		this.contenuOption = "Lister les pizzas";

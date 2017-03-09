@@ -113,7 +113,7 @@ public class PizzaDaoMemory implements IDao<Pizza, String> {
 			try {
 				Files.write(Paths.get("data/" + pizza.getCode() + ".txt"), pizza.toString().getBytes());
 			} catch (IOException e) {
-				Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+				Logger.getAnonymousLogger().log(Level.SEVERE, "createFiles exception", e);
 			}
 		});
 	}

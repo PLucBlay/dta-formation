@@ -9,6 +9,9 @@ import fr.pizzeria.dao.IDao;
 public abstract class Option {
 	protected String contenuOption;
 
+	/**
+	 * 
+	 */
 	public Option() {
 	}
 

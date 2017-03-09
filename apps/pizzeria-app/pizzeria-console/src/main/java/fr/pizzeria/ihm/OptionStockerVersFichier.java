@@ -2,6 +2,10 @@ package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.IDao;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class OptionStockerVersFichier extends Option {
 
 	/**

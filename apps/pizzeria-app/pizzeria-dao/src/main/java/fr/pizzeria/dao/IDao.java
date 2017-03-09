@@ -16,6 +16,9 @@ import fr.pizzeria.exception.UpdateException;
  *            identifier to an element
  */
 public interface IDao<T, C> {
+	/**
+	 * @return a list of all the elements T
+	 */
 	List<T> findAll();
 
 	/**

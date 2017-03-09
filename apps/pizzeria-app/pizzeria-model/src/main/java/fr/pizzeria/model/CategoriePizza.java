@@ -9,6 +9,9 @@ public enum CategoriePizza {
 
 	private String name = "";
 
+	/**
+	 * @param name
+	 */
 	CategoriePizza(String name) {
 		this.name = name;
 	}

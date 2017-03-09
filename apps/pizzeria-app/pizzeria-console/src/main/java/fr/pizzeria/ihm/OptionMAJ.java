@@ -8,6 +8,10 @@ import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class OptionMAJ extends Option {
 
 	/**

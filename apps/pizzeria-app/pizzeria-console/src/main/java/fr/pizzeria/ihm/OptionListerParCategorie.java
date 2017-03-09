@@ -6,6 +6,10 @@ import java.util.stream.Collectors;
 import fr.pizzeria.dao.IDao;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class OptionListerParCategorie extends Option {
 
 	/**

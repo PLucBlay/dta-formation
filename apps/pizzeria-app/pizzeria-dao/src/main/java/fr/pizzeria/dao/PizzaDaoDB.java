@@ -29,6 +29,7 @@ import fr.pizzeria.model.Pizza;
  *
  */
 public class PizzaDaoDB implements IDao<Pizza, String> {
+	private static final String SQLALL = "SELECT * FROM pizza";
 	private Scanner scan;
 	private String url;
 	private String user;
@@ -36,6 +37,8 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 
 	/**
 	 * @param scan
+	 * @param bundle
+	 *            containing the database access data
 	 */
 	public PizzaDaoDB(Scanner scan, ResourceBundle bundle) {
 		url = bundle.getString("url");
@@ -45,7 +48,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 		try {
 			Class.forName(bundle.getString("driver"));
 		} catch (ClassNotFoundException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+			Logger.getAnonymousLogger().log(Level.SEVERE, "driver getting exception", e);
 		}
 	}
 
@@ -54,7 +57,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 		List<Pizza> listPizzas = new ArrayList<>();
 		try (Connection co = DriverManager.getConnection(url, user, password);
 				Statement statement = co.createStatement();
-				ResultSet resultats = statement.executeQuery("SELECT * FROM pizza");) {
+				ResultSet resultats = statement.executeQuery(SQLALL);) {
 			while (resultats.next()) {
 				Integer id = resultats.getInt("id");
 				String nom = resultats.getString("libelle");
@@ -67,7 +70,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 			resultats.close();
 			statement.close();
 		} catch (SQLException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+			Logger.getAnonymousLogger().log(Level.SEVERE, "findAll exception", e);
 		}
 		return listPizzas;
 	}
@@ -84,7 +87,6 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 			prepStatement.setString(5, pizza.getCategorie().name());
 			prepStatement.executeUpdate();
 		} catch (SQLException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 			throw new SaveException(e);
 		}
 	}
@@ -131,7 +133,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 		try (Connection co = DriverManager.getConnection(url, user, password);
 				PreparedStatement prepStatement = co.prepareStatement("SELECT id FROM pizza WHERE reference=? ");) {
 			prepStatement.setString(1, codePizza);
-			ResultSet resultats = prepStatement.executeQuery("SELECT * FROM pizza");
+			ResultSet resultats = prepStatement.executeQuery(SQLALL);
 			if (resultats.next()) {
 				resultats.close();
 				return true;
@@ -140,7 +142,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 				return false;
 			}
 		} catch (SQLException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+			Logger.getAnonymousLogger().log(Level.SEVERE, "exist exception", e);
 		}
 		return false;
 	}
@@ -150,7 +152,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 		try (Connection co = DriverManager.getConnection(url, user, password);
 				PreparedStatement prepStatement = co.prepareStatement("SELECT id FROM pizza WHERE reference=? ");) {
 			prepStatement.setString(1, codePizza);
-			ResultSet resultats = prepStatement.executeQuery("SELECT * FROM pizza");
+			ResultSet resultats = prepStatement.executeQuery(SQLALL);
 			if (resultats.next()) {
 				Integer id = resultats.getInt("id");
 				String nom = resultats.getString("libelle");
@@ -165,7 +167,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 				return null;
 			}
 		} catch (SQLException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+			Logger.getAnonymousLogger().log(Level.SEVERE, "get exception", e);
 			return null;
 		}
 	}
@@ -177,7 +179,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 			try {
 				Files.write(Paths.get("data/" + pizza.getCode() + ".txt"), pizza.toString().getBytes());
 			} catch (IOException e) {
-				Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+				Logger.getAnonymousLogger().log(Level.SEVERE, "createFiles exception", e);
 			}
 		});
 	}

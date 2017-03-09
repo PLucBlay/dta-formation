@@ -16,6 +16,10 @@ public class ClientDao implements IDao<Client, Integer> {
 	private List<Client> listeClients;
 	private Scanner scan;
 
+	/**
+	 * @param listeClients
+	 * @param scan
+	 */
 	public ClientDao(List<Client> listeClients, Scanner scan) {
 		this.scan = scan;
 		this.listeClients = listeClients;
@@ -65,6 +69,7 @@ public class ClientDao implements IDao<Client, Integer> {
 		return false;
 	}
 
+	@Override
 	public Client get(Integer id) {
 		for (Client cli : listeClients) {
 			if (cli.getId().equals(id)) {

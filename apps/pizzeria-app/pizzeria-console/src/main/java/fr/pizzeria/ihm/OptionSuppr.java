@@ -3,6 +3,10 @@ package fr.pizzeria.ihm;
 import fr.pizzeria.dao.IDao;
 import fr.pizzeria.exception.StockageException;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class OptionSuppr extends Option {
 
 	/**

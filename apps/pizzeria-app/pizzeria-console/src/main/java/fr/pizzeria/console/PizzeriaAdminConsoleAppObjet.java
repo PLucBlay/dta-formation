@@ -15,9 +15,17 @@ import fr.pizzeria.model.Client;
  */
 public class PizzeriaAdminConsoleAppObjet {
 
+	/**
+	 * prevent use of this class as non-static
+	 */
 	private PizzeriaAdminConsoleAppObjet() {
 	}
 
+	/**
+	 * Main method launching ConsoleAppObjet
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		List<Client> listeClients = new ArrayList<>();
