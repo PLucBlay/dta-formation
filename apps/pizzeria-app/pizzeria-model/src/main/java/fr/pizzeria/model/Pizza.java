@@ -8,6 +8,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Pizza {
+	private int id;
 	@ToString
 	private String code;
 	@ToString
@@ -20,11 +21,26 @@ public class Pizza {
 
 	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
 		super();
+		this.id = nbPizzas;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
 		this.categorie = categorie;
 		nbPizzas++;
+	}
+
+	public Pizza(int id, String code, String nom, double prix, CategoriePizza categorie) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.nom = nom;
+		this.prix = prix;
+		this.categorie = categorie;
+		nbPizzas++;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public String getCode() {
@@ -100,4 +116,5 @@ public class Pizza {
 		return new EqualsBuilder().appendSuper(super.equals(obj)).append(code, rhs.code).append(prix, rhs.prix)
 				.isEquals();
 	}
+
 }

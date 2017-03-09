@@ -2,7 +2,7 @@ package fr.pizzeria.ihm;
 
 import java.util.List;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IDao;
 import fr.pizzeria.model.Pizza;
 
 public class OptionLister extends Option {
@@ -13,7 +13,7 @@ public class OptionLister extends Option {
 	}
 
 	@Override
-	public void execute(PizzaDao dao) {
+	public void execute(IDao dao) {
 		List<Pizza> list = dao.findAll();
 		for (Pizza piz : list) {
 			System.out.println(piz);

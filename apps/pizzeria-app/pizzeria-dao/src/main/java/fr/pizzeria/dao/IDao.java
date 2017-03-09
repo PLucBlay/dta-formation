@@ -1,6 +1,7 @@
 package fr.pizzeria.dao;
 
 import java.util.List;
+import java.util.Scanner;
 
 import fr.pizzeria.exception.DeleteException;
 import fr.pizzeria.exception.SaveException;
@@ -16,4 +17,10 @@ public interface IDao<T, C> {
 	void delete(C code) throws DeleteException;
 
 	boolean exist(C code);
+
+	Scanner getScanner();
+
+	void clearFiles();
+
+	void createFiles();
 }

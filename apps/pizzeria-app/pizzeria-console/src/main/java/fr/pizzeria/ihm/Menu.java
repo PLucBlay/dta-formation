@@ -5,13 +5,13 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IDao;
 
 public class Menu {
 	private Map<Integer, Option> listeOptions;
-	private PizzaDao dao;
+	private IDao dao;
 
-	public Menu(PizzaDao dao) {
+	public Menu(IDao dao) {
 		listeOptions = new LinkedHashMap<>();// maintain order
 		listeOptions.put(1, new OptionLister());
 		listeOptions.put(2, new OptionListerParCategorie());

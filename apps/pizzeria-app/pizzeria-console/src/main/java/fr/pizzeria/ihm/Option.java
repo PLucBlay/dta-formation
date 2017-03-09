@@ -1,6 +1,6 @@
 package fr.pizzeria.ihm;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IDao;
 
 public abstract class Option {
 	protected String contenuOption;
@@ -16,5 +16,5 @@ public abstract class Option {
 		this.contenuOption = contenuOption;
 	}
 
-	public abstract void execute(PizzaDao dao);
+	public abstract void execute(IDao dao);
 }

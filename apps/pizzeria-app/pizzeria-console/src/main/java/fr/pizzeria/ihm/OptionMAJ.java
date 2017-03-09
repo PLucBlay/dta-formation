@@ -3,7 +3,7 @@ package fr.pizzeria.ihm;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IDao;
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -12,11 +12,11 @@ public class OptionMAJ extends Option {
 
 	public OptionMAJ() {
 		super();
-		this.contenuOption = "Mettre � jour une pizza";
+		this.contenuOption = "Mettre à jour une pizza";
 	}
 
 	@Override
-	public void execute(PizzaDao dao) {
+	public void execute(IDao dao) {
 
 		// check si 99 > sortie ou si code pizza existe
 		String codeModif;

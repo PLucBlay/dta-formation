@@ -1,6 +1,6 @@
 package fr.pizzeria.ihm;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IDao;
 
 public class OptionExit extends Option {
 
@@ -10,7 +10,7 @@ public class OptionExit extends Option {
 	}
 
 	@Override
-	public void execute(PizzaDao dao) {
+	public void execute(IDao dao) {
 		System.out.println("A Bientot");
 	}
 

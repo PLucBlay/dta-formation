@@ -17,12 +17,19 @@ import fr.pizzeria.exception.UpdateException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
-public class PizzaDao implements IDao<Pizza, String> {
+public class PizzaDaoMemory implements IDao<Pizza, String> {
 	private List<Pizza> listePizzas;
 	private Scanner scan;
 
-	public PizzaDao(Scanner scan) {
+	/**
+	 * @param scan
+	 */
+	public PizzaDaoMemory(Scanner scan) {
 		this.scan = scan;
+		initialize();
+	}
+
+	private void initialize() {
 		this.listePizzas = new ArrayList<>();
 		listePizzas.add(new Pizza("PEP", "La Pépéroni", 12.5, CategoriePizza.VIANDE));
 		listePizzas.add(new Pizza("MAR", "La Margherita", 14.00, CategoriePizza.VIANDE));

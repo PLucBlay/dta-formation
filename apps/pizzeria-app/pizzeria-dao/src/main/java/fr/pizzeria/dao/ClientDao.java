@@ -68,4 +68,12 @@ public class ClientDao implements IDao<Client, Integer> {
 		}
 		return null;
 	}
+
+	@Override
+	public void clearFiles() {
+	}
+
+	@Override
+	public void createFiles() {
+	}
 }

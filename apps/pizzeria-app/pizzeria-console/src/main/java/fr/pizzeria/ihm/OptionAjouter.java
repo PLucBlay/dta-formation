@@ -3,7 +3,7 @@ package fr.pizzeria.ihm;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IDao;
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -16,7 +16,7 @@ public class OptionAjouter extends Option {
 	}
 
 	@Override
-	public void execute(PizzaDao dao) {
+	public void execute(IDao dao) {
 		System.out.println("Veuillez saisir le code : ");
 		String codePizza = dao.getScanner().next();
 		System.out.println("Veuillez saisir le nom (sans espace) : ");

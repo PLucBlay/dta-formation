@@ -13,14 +13,14 @@ import fr.pizzeria.exception.SaveException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
-public class PizzaDaoTest {
+public class PizzaDaoMemoryTest {
 
-	private PizzaDao pizzaDao;
+	private PizzaDaoMemory pizzaDao;
 
 	@Before
 	public void setUp() {
 		Scanner scan = new Scanner(System.in);
-		pizzaDao = new PizzaDao(scan);
+		pizzaDao = new PizzaDaoMemory(scan);
 	}
 
 	@Test
