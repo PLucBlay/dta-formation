@@ -8,6 +8,9 @@ import fr.pizzeria.model.Pizza;
 
 public class OptionListerParCategorie extends Option {
 
+	/**
+	 * 
+	 */
 	public OptionListerParCategorie() {
 		super();
 		this.contenuOption = "Lister les pizzas par catégorie";

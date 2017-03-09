@@ -5,6 +5,9 @@ import fr.pizzeria.exception.StockageException;
 
 public class OptionSuppr extends Option {
 
+	/**
+	 * 
+	 */
 	public OptionSuppr() {
 		super();
 		this.contenuOption = "Supprimer une pizza";

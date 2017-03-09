@@ -17,6 +17,10 @@ import fr.pizzeria.exception.UpdateException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class PizzaDaoMemory implements IDao<Pizza, String> {
 	private List<Pizza> listePizzas;
 	private Scanner scan;
@@ -77,6 +81,7 @@ public class PizzaDaoMemory implements IDao<Pizza, String> {
 		}
 	}
 
+	@Override
 	public Scanner getScanner() {
 		return scan;
 	}
@@ -91,6 +96,7 @@ public class PizzaDaoMemory implements IDao<Pizza, String> {
 		return false;
 	}
 
+	@Override
 	public Pizza get(String codePizza) {
 		for (Pizza piz : listePizzas) {
 			if (piz.getCode().equals(codePizza)) {
@@ -100,6 +106,7 @@ public class PizzaDaoMemory implements IDao<Pizza, String> {
 		return null;
 	}
 
+	@Override
 	public void createFiles() {
 		List<Pizza> list = findAll();
 		list.stream().forEach(pizza -> {
@@ -111,6 +118,7 @@ public class PizzaDaoMemory implements IDao<Pizza, String> {
 		});
 	}
 
+	@Override
 	public void clearFiles() {
 		Arrays.stream(new File("data/").listFiles()).forEach(File::delete);
 	}

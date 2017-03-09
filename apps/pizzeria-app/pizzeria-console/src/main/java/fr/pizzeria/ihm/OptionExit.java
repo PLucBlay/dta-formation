@@ -4,6 +4,9 @@ import fr.pizzeria.dao.IDao;
 
 public class OptionExit extends Option {
 
+	/**
+	 * 
+	 */
 	public OptionExit() {
 		super();
 		this.contenuOption = "Sortir";

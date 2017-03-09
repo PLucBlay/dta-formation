@@ -8,6 +8,9 @@ import fr.pizzeria.model.Pizza;
 
 public class OptionPlusCher extends Option {
 
+	/**
+	 * 
+	 */
 	public OptionPlusCher() {
 		super();
 		this.contenuOption = "Pizza au tarif le plus élevé";

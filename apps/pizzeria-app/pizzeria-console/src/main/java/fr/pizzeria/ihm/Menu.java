@@ -11,6 +11,9 @@ public class Menu {
 	private Map<Integer, Option> listeOptions;
 	private IDao dao;
 
+	/**
+	 * @param dao
+	 */
 	public Menu(IDao dao) {
 		listeOptions = new LinkedHashMap<>();// maintain order
 		listeOptions.put(1, new OptionLister());
@@ -25,14 +28,25 @@ public class Menu {
 		this.dao = dao;
 	}
 
+	/**
+	 * @return list containing options
+	 */
 	public Map<Integer, Option> getListe() {
 		return listeOptions;
 	}
 
+	/**
+	 * Set the options
+	 * 
+	 * @param Map<int,Option>
+	 */
 	public void setListe(Map<Integer, Option> liste) {
 		this.listeOptions = liste;
 	}
 
+	/**
+	 * print the menu
+	 */
 	public void showMenu() {
 		System.out.println();
 		System.out.println("***** Pizzeria Administration *****");
@@ -42,6 +56,9 @@ public class Menu {
 		System.out.println();
 	}
 
+	/**
+	 * start asking the user to choose an option
+	 */
 	public void execute() {
 		dao.getScanner();
 		int reponseUser = 0;

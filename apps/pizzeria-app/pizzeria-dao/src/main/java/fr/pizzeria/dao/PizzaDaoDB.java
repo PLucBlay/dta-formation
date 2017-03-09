@@ -24,6 +24,10 @@ import fr.pizzeria.exception.UpdateException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class PizzaDaoDB implements IDao<Pizza, String> {
 	private Scanner scan;
 	private String url;
@@ -62,11 +66,10 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 			}
 			resultats.close();
 			statement.close();
-			return listPizzas;
 		} catch (SQLException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 		}
-		return null;
+		return listPizzas;
 	}
 
 	@Override
@@ -142,6 +145,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 		return false;
 	}
 
+	@Override
 	public Pizza get(String codePizza) {
 		try (Connection co = DriverManager.getConnection(url, user, password);
 				PreparedStatement prepStatement = co.prepareStatement("SELECT id FROM pizza WHERE reference=? ");) {

@@ -9,6 +9,10 @@ import fr.pizzeria.dao.PizzaDaoDB;
 import fr.pizzeria.ihm.Menu;
 import fr.pizzeria.model.Client;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class PizzeriaAdminConsoleAppObjet {
 
 	private PizzeriaAdminConsoleAppObjet() {

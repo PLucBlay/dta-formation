@@ -10,6 +10,9 @@ import fr.pizzeria.model.Pizza;
 
 public class OptionMAJ extends Option {
 
+	/**
+	 * 
+	 */
 	public OptionMAJ() {
 		super();
 		this.contenuOption = "Mettre à jour une pizza";

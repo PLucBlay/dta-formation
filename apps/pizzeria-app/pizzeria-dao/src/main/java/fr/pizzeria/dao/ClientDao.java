@@ -8,6 +8,10 @@ import fr.pizzeria.exception.SaveException;
 import fr.pizzeria.exception.UpdateException;
 import fr.pizzeria.model.Client;
 
+/**
+ * @author PLucBlay
+ *
+ */
 public class ClientDao implements IDao<Client, Integer> {
 	private List<Client> listeClients;
 	private Scanner scan;
@@ -46,6 +50,7 @@ public class ClientDao implements IDao<Client, Integer> {
 		}
 	}
 
+	@Override
 	public Scanner getScanner() {
 		return scan;
 	}
