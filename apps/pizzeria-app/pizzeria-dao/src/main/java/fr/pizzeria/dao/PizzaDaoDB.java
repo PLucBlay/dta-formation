@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,32 +26,21 @@ import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoDB implements IDao<Pizza, String> {
 	private Scanner scan;
-	String url = "jdbc:mysql://localhost:3306/pizzeria";
-	String login = "user1";
-	String pass = "";
-	Connection co = null;
+	private String url;
+	private String user;
+	private String password;
 
 	/**
 	 * @param scan
 	 */
-	public PizzaDaoDB(Scanner scan) {
+	public PizzaDaoDB(Scanner scan, ResourceBundle bundle) {
+		url = bundle.getString("url");
+		user = bundle.getString("user");
+		password = bundle.getString("password");
 		this.scan = scan;
-		initialize();
-	}
-
-	private void initialize() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			co = DriverManager.getConnection(url, login, pass);
-		} catch (SQLException | ClassNotFoundException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
-		}
-	}
-
-	public void closeDBConnection() {
-		try {
-			co.close();
-		} catch (SQLException e) {
+			Class.forName(bundle.getString("driver"));
+		} catch (ClassNotFoundException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 		}
 	}
@@ -58,10 +48,9 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 	@Override
 	public List<Pizza> findAll() {
 		List<Pizza> listPizzas = new ArrayList<>();
-		try {
-			ResultSet resultats;
-			Statement statement = co.createStatement();
-			resultats = statement.executeQuery("SELECT * FROM pizza");
+		try (Connection co = DriverManager.getConnection(url, user, password);
+				Statement statement = co.createStatement();
+				ResultSet resultats = statement.executeQuery("SELECT * FROM pizza");) {
 			while (resultats.next()) {
 				Integer id = resultats.getInt("id");
 				String nom = resultats.getString("libelle");
@@ -82,69 +71,102 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 
 	@Override
 	public void saveNew(Pizza pizza) throws SaveException {
-		try {
-			PreparedStatement prepStatement = co.prepareStatement(
-					"INSERT INTO pizza (id, libelle, reference, prix, url_image, categorie_pizza) VALUES (null, ?, ?, ?, ?, ?)");
+		try (Connection co = DriverManager.getConnection(url, user, password);
+				PreparedStatement prepStatement = co.prepareStatement(
+						"INSERT INTO pizza (id, libelle, reference, prix, url_image, categorie_pizza) VALUES (null, ?, ?, ?, ?, ?)");) {
 			prepStatement.setString(1, pizza.getNom());
 			prepStatement.setString(2, pizza.getCode());
 			prepStatement.setDouble(3, pizza.getPrix());
 			prepStatement.setString(4, (pizza.getNom() + ".png").replaceAll("\\s", ""));
 			prepStatement.setString(5, pizza.getCategorie().name());
 			prepStatement.executeUpdate();
-			prepStatement.close();
 		} catch (SQLException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
-			throw new SaveException();
+			throw new SaveException(e);
 		}
 	}
 
 	@Override
 	public void update(String codePizza, Pizza pizza) throws UpdateException {
-		/*
-		 * if (exist(codePizza)) {
-		 * listePizzas.set(listePizzas.indexOf(get(codePizza)), pizza); } else {
-		 * throw new UpdateException(); }
-		 */
+		try (Connection co = DriverManager.getConnection(url, user, password);
+				PreparedStatement prepStatement = co.prepareStatement(
+						"UPDATE pizza SET id=?, libelle=?, reference=?, prix=?, url_image=?, categorie_pizza=? WHERE reference=?");) {
+			prepStatement.setString(1, pizza.getNom());
+			prepStatement.setString(2, pizza.getCode());
+			prepStatement.setDouble(3, pizza.getPrix());
+			prepStatement.setString(4, (pizza.getNom() + ".png").replaceAll("\\s", ""));
+			prepStatement.setString(5, pizza.getCategorie().name());
+			prepStatement.setString(6, pizza.getCode());
+			prepStatement.executeUpdate();
+			prepStatement.close();
+		} catch (SQLException e) {
+			throw new UpdateException(e);
+		}
 	}
 
 	@Override
 	public void delete(String codePizza) throws DeleteException {
 		if (exist(codePizza)) {
-			/*
-			 * TODO
-			 */
-		} else {
-			throw new DeleteException();
+			try (Connection co = DriverManager.getConnection(url, user, password);
+					PreparedStatement prepStatement = co.prepareStatement("DELETE FROM pizza WHERE reference=?");) {
+				prepStatement.setString(1, codePizza);
+				prepStatement.executeUpdate();
+				prepStatement.close();
+			} catch (SQLException e) {
+				throw new DeleteException(e);
+			}
 		}
 	}
 
+	@Override
 	public Scanner getScanner() {
 		return scan;
 	}
 
 	@Override
 	public boolean exist(String codePizza) {
-		/*
-		 * for (Pizza piz : listePizzas) { if (piz.getCode().equals(codePizza))
-		 * { return true; } }
-		 */
+		try (Connection co = DriverManager.getConnection(url, user, password);
+				PreparedStatement prepStatement = co.prepareStatement("SELECT id FROM pizza WHERE reference=? ");) {
+			prepStatement.setString(1, codePizza);
+			ResultSet resultats = prepStatement.executeQuery("SELECT * FROM pizza");
+			if (resultats.next()) {
+				resultats.close();
+				return true;
+			} else {
+				resultats.close();
+				return false;
+			}
+		} catch (SQLException e) {
+			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+		}
 		return false;
-		/*
-		 * TODO
-		 */
 	}
 
 	public Pizza get(String codePizza) {
-		/*
-		 * for (Pizza piz : listePizzas) { if (piz.getCode().equals(codePizza))
-		 * { return piz; } }
-		 */
-		return null;
-		/*
-		 * TODO
-		 */
+		try (Connection co = DriverManager.getConnection(url, user, password);
+				PreparedStatement prepStatement = co.prepareStatement("SELECT id FROM pizza WHERE reference=? ");) {
+			prepStatement.setString(1, codePizza);
+			ResultSet resultats = prepStatement.executeQuery("SELECT * FROM pizza");
+			if (resultats.next()) {
+				Integer id = resultats.getInt("id");
+				String nom = resultats.getString("libelle");
+				String code = resultats.getString("reference");
+				double prix = resultats.getDouble("prix");
+				String categorieString = resultats.getString("categorie_pizza");
+				CategoriePizza cat = CategoriePizza.valueOf(categorieString.toUpperCase());
+				resultats.close();
+				return new Pizza(id, code, nom, prix, cat);
+			} else {
+				resultats.close();
+				return null;
+			}
+		} catch (SQLException e) {
+			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+			return null;
+		}
 	}
 
+	@Override
 	public void createFiles() {
 		List<Pizza> list = findAll();
 		list.stream().forEach(pizza -> {
@@ -156,6 +178,7 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 		});
 	}
 
+	@Override
 	public void clearFiles() {
 		Arrays.stream(new File("data/").listFiles()).forEach(File::delete);
 	}

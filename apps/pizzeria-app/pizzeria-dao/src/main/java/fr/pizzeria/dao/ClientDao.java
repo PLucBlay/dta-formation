@@ -71,9 +71,11 @@ public class ClientDao implements IDao<Client, Integer> {
 
 	@Override
 	public void clearFiles() {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public void createFiles() {
+		throw new UnsupportedOperationException();
 	}
 }

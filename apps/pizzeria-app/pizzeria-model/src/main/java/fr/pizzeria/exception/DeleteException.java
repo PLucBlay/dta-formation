@@ -11,4 +11,16 @@ public class DeleteException extends StockageException {
 	public DeleteException(String s) {
 		super(s + "Delete Exception");
 	}
+
+	public DeleteException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+	}
+
+	public DeleteException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public DeleteException(Throwable cause) {
+		super(cause);
+	}
 }

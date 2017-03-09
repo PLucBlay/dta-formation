@@ -19,8 +19,8 @@ public class Menu {
 		listeOptions.put(4, new OptionAjouter());
 		listeOptions.put(5, new OptionMAJ());
 		listeOptions.put(6, new OptionSuppr());
-		listeOptions.put(10, new OptionStockerVersFichier());
-		listeOptions.put(11, new OptionNettoyerFichiers());
+		// listeOptions.put(10, new OptionStockerVersFichier());
+		// listeOptions.put(11, new OptionNettoyerFichiers());
 		listeOptions.put(99, new OptionExit());
 		this.dao = dao;
 	}

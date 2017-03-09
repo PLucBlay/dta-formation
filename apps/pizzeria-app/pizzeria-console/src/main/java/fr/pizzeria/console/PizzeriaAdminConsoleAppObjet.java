@@ -2,6 +2,7 @@ package fr.pizzeria.console;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoDB;
@@ -20,11 +21,11 @@ public class PizzeriaAdminConsoleAppObjet {
 		listeClients.add(new Client(15, "Hugues", "Robert", 2.0));
 		Scanner scan = new Scanner(System.in);
 		// PizzaDaoMemory dao = new PizzaDaoMemory(scan);
-		PizzaDaoDB dao = new PizzaDaoDB(scan);
+		ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
+		PizzaDaoDB dao = new PizzaDaoDB(scan, bundle);
 		Menu menu = new Menu(dao);
 		menu.execute();
 		scan.close();
-		dao.closeDBConnection();
 	}
 
 }
