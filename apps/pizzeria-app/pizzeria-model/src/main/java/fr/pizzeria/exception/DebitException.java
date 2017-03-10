@@ -9,7 +9,7 @@ public class DebitException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * Create basic DebitException containing "Debit Exception"
 	 */
 	public DebitException() {
 		super("Debit Exception");

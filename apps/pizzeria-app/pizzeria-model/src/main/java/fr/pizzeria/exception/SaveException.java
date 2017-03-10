@@ -41,9 +41,9 @@ public class SaveException extends StockageException {
 	}
 
 	/**
-	 * 
+	 * Create basic SaveException containing "Save Exception"
 	 */
 	public SaveException() {
-		super();
+		super("Save Exception");
 	}
 }

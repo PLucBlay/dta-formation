@@ -9,7 +9,7 @@ public class UpdateException extends StockageException {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * Create basic UpdateException containing "Update Exception"
 	 */
 	public UpdateException() {
 		super("Update Exception");

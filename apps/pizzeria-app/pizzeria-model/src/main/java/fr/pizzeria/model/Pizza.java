@@ -4,6 +4,16 @@ import java.lang.reflect.Field;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -11,17 +21,39 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * @author PLucBlay
  *
  */
+
+@Entity
+@NamedQueries({ @NamedQuery(name = "pizza.findAll", query = "select p from Pizza p"),
+		@NamedQuery(name = "pizza.get", query = "select p from Pizza p where p.code=:codeSearched") })
 public class Pizza {
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false)
+	private Integer id;
+
 	@ToString
+	@Column(name = "code", length = 10, nullable = false, unique = true)
 	private String code;
+
 	@ToString
+	@Column(name = "nom", length = 255, nullable = false)
 	private String nom;
+
 	@ToString
+	@Column(name = "prix", nullable = false)
 	private double prix;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "categorie", nullable = false)
 	@ToString
 	private CategoriePizza categorie;
-	private static int nbPizzas = 0;
+
+	/**
+	 * Constructor without argument mainly for JPA use
+	 */
+	public Pizza() {
+		// Empty constructor for JPA use and eventual future adds
+	}
 
 	/**
 	 * Constructor automatically managing the id - DO NOT USE with the other
@@ -34,16 +66,14 @@ public class Pizza {
 	 */
 	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
 		super();
-		this.id = nbPizzas;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
 		this.categorie = categorie;
-		nbPizzas++;
 	}
 
 	/**
-	 * Constructor with no internal managament of the id - DO NOT USE with the
+	 * Constructor with no internal management of the id - DO NOT USE with the
 	 * other constructor
 	 * 
 	 * @param id
@@ -59,7 +89,6 @@ public class Pizza {
 		this.nom = nom;
 		this.prix = prix;
 		this.categorie = categorie;
-		nbPizzas++;
 	}
 
 	/**
@@ -112,13 +141,6 @@ public class Pizza {
 	 */
 	public void setPrix(double prix) {
 		this.prix = prix;
-	}
-
-	/**
-	 * @return number of created pizzas
-	 */
-	public static int getNbPizzas() {
-		return nbPizzas;
 	}
 
 	/**

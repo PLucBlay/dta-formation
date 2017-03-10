@@ -9,7 +9,7 @@ public class StockageException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * Create a basic StockageException
 	 */
 	public StockageException() {
 		super();

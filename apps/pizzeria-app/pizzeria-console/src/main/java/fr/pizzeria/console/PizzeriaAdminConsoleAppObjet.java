@@ -11,6 +11,7 @@ import javax.naming.ConfigurationException;
 
 import fr.pizzeria.dao.IDao;
 import fr.pizzeria.dao.PizzaDaoDB;
+import fr.pizzeria.dao.PizzaDaoJPA;
 import fr.pizzeria.dao.PizzaDaoMemory;
 import fr.pizzeria.ihm.Menu;
 import fr.pizzeria.model.Client;
@@ -55,6 +56,9 @@ public class PizzeriaAdminConsoleAppObjet {
 			 */
 			case "MODEL":
 				dao = new PizzaDaoMemory(scan);
+				break;
+			case "JPA":
+				dao = new PizzaDaoJPA(scan);
 				break;
 			default:
 				throw new ConfigurationException(

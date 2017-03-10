@@ -9,7 +9,7 @@ public class CreditException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * Create basic CreditException containing "Credit Exception"
 	 */
 	public CreditException() {
 		super("Credit Exception");
