@@ -72,10 +72,14 @@ public interface IDao<T, C> {
 	/**
 	 * clear files created by the dao
 	 */
-	void clearFiles();
+	default void clearFiles() {
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * create files corresponding to the model managed by the Dao
 	 */
-	void createFiles();
+	default void createFiles() {
+		throw new UnsupportedOperationException();
+	}
 }
