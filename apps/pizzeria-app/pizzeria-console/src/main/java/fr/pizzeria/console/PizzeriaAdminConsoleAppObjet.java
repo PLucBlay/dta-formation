@@ -58,6 +58,7 @@ public class PizzeriaAdminConsoleAppObjet {
 				dao = new PizzaDaoMemory(scan);
 				break;
 			case "JPA":
+				java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
 				dao = new PizzaDaoJPA(scan);
 				break;
 			default:
@@ -66,6 +67,10 @@ public class PizzeriaAdminConsoleAppObjet {
 			}
 			Menu menu = new Menu(dao);
 			menu.execute();
+			// launch stopping methods for DAOs
+			if (typeDao.equals("JPA")) {
+				dao.stopDao();
+			}
 		} catch (ConfigurationException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, "Config exception :", e);
 		} finally {

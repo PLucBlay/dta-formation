@@ -22,6 +22,10 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  *
  */
 
+/**
+ * @author PLucBlay
+ *
+ */
 @Entity
 @NamedQueries({ @NamedQuery(name = "pizza.findAll", query = "select p from Pizza p"),
 		@NamedQuery(name = "pizza.get", query = "select p from Pizza p where p.code=:codeSearched") })
@@ -43,10 +47,14 @@ public class Pizza {
 	@Column(name = "prix", nullable = false)
 	private double prix;
 
+	@ToString
 	@Enumerated(EnumType.STRING)
 	@Column(name = "categorie", nullable = false)
-	@ToString
 	private CategoriePizza categorie;
+
+	@ToString
+	@Column(name = "url_pizza", length = 255, nullable = false)
+	private String urlPizza;
 
 	/**
 	 * Constructor without argument mainly for JPA use
@@ -89,6 +97,14 @@ public class Pizza {
 		this.nom = nom;
 		this.prix = prix;
 		this.categorie = categorie;
+	}
+
+	/**
+	 * @param id
+	 *            of pizza
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	/**
@@ -156,6 +172,20 @@ public class Pizza {
 	 */
 	public void setCategorie(CategoriePizza categorie) {
 		this.categorie = categorie;
+	}
+
+	/**
+	 * @return url of pizza
+	 */
+	public String getUrlPizza() {
+		return urlPizza;
+	}
+
+	/**
+	 * @param urlPizza
+	 */
+	public void setUrlPizza(String urlPizza) {
+		this.urlPizza = urlPizza;
 	}
 
 	@Override

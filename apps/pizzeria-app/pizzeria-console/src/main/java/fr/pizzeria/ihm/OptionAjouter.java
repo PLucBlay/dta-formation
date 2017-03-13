@@ -54,13 +54,13 @@ public class OptionAjouter extends Option {
 				isCategorie = true;
 			} catch (IllegalArgumentException e) {
 				Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
-				System.out.println("Entr�e non-valide.");
+				System.out.println("Entrée non-valide.");
 			}
 		} while (!isCategorie);
 
 		try {
 			dao.saveNew(new Pizza(codePizza, nomPizza, prixPizza, categoriePizza));
-			System.out.println("Mise � jour r�ussie !");
+			System.out.println("Mise à jour réussie !");
 		} catch (StockageException e) {
 			System.out.println(e);
 		}

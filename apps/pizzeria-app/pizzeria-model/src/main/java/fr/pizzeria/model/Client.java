@@ -1,5 +1,15 @@
 package fr.pizzeria.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import fr.pizzeria.exception.CreditException;
 import fr.pizzeria.exception.DebitException;
 
@@ -7,11 +17,37 @@ import fr.pizzeria.exception.DebitException;
  * @author PLucBlay
  *
  */
+@Entity
 public class Client {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false)
 	private Integer id;
+
+	@OneToMany(mappedBy = "client")
+	private Set<Commande> commandes;
+
+	@Column(name = "nom", length = 100, nullable = false)
 	private String nom;
+
+	@Column(name = "prenom", length = 100, nullable = false)
 	private String prenom;
+
+	@Column(name = "email", length = 255, nullable = false)
+	private String email;
+
+	@Column(name = "mdp", length = 20, nullable = false)
+	private String motDePasse;
+
 	private Double solde;
+
+	/**
+	 * empty constructor
+	 */
+	public Client() {
+		super();
+		commandes = new HashSet<>();
+	}
 
 	/**
 	 * @param id
@@ -115,6 +151,22 @@ public class Client {
 	@Override
 	public String toString() {
 		return id + " ->" + nom + " " + prenom + " (" + solde + ")";
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
 	}
 
 }

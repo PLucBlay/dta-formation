@@ -16,6 +16,14 @@ import fr.pizzeria.exception.UpdateException;
  *            identifier to an element
  */
 public interface IDao<T, C> {
+
+	/**
+	 * close anything that need it when dao stops
+	 */
+	default void stopDao() {
+		throw new UnsupportedOperationException();
+	}
+
 	/**
 	 * @return a list of all the elements T
 	 */
