@@ -10,7 +10,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>pizzeria-admin-app</groupId>
-	<artifactId>pizzeria-admin-app</artifactId>
+	<artifactId>pierreluc-pizzeria-admin-app</artifactId>
 	<packaging>war</packaging>
 	<name>pizzeria-admin-app Maven Webapp</name>
 	<url>http://maven.apache.org</url>
