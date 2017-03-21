@@ -44,7 +44,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>fr.pizzeria.console.PizzeriaAdminConsoleAppObjet</mainClass>
+							<mainClass>fr.pizzeria.console.ListerPizzasController</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

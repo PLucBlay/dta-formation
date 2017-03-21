@@ -5,13 +5,12 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>PizzaServletWebApi</servlet-name>
-  	<display-name>PizzaServletWebApi</display-name>
-  	<description></description>
-  	<servlet-class>fr.pizzeria.admin.web.PizzaServletWebApi</servlet-class>
+  	<servlet-name>ListerPizzaController</servlet-name>
+  	<display-name>ListerPizzaController</display-name>
+  	<servlet-class>fr.pizzeria.admin.web.ListerPizzaController</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>PizzaServletWebApi</servlet-name>
-  	<url-pattern>/PizzaServletWebApi</url-pattern>
+  	<servlet-name>ListerPizzaController</servlet-name>
+  	<url-pattern>/pizzas/list</url-pattern>
   </servlet-mapping>
 </web-app>
