@@ -22,6 +22,7 @@ import fr.pizzeria.model.Pizza;
  *
  */
 public class PizzaDaoMemory implements IDao<Pizza, String> {
+	private static final long serialVersionUID = 1L;
 	private List<Pizza> listePizzas;
 	private Scanner scan;
 

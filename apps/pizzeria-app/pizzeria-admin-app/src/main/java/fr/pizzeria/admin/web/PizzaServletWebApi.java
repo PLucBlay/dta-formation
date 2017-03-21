@@ -20,7 +20,7 @@ import fr.pizzeria.model.Pizza;
  */
 public class PizzaServletWebApi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private PizzaDaoMemory dao;
+	private static PizzaDaoMemory dao;
 
 	/**
 	 * Default constructor.
