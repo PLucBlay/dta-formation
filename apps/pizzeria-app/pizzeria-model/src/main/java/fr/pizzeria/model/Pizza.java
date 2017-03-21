@@ -78,6 +78,7 @@ public class Pizza {
 		this.nom = nom;
 		this.prix = prix;
 		this.categorie = categorie;
+		this.urlPizza = nom + ".png";
 	}
 
 	/**
@@ -97,6 +98,7 @@ public class Pizza {
 		this.nom = nom;
 		this.prix = prix;
 		this.categorie = categorie;
+		this.urlPizza = nom + ".png";
 	}
 
 	/**
