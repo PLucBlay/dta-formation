@@ -45,7 +45,34 @@
 			<!--/.navbar-collapse -->
 		</div>
 	</nav>
+	<div class="container">
+		<h1>Nos Events</h1>
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Pizza</th>
+						<th>Date</th>
+						<th>Event</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="pizzaEvent" items="${listEvents}">
+						<tr>
+							<td>${pizzaEvent.pizza}</td>
+							<td>${pizzaEvent.date}</td>
+							<td>${pizzaEvent.type}</td>
+						</tr>
+					</c:forEach>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
 
-	<div>${applicationScope.compteurSession} session(s) ouverte(s)</div>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

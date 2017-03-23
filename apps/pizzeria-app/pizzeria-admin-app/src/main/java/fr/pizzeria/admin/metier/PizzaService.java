@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
 import fr.pizzeria.dao.IDao;
@@ -13,6 +14,9 @@ import fr.pizzeria.exception.UpdateException;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaService {
+
+	@Inject
+	private Event<PizzaEvent> event;
 
 	@Inject
 	private IDao<Pizza, String> pizzaDao;
@@ -31,6 +35,7 @@ public class PizzaService {
 		// code
 		try {
 			pizzaDao.update(s, p);
+			event.fire(new PizzaEvent(p, PizzaEventType.UPDATE));
 		} catch (UpdateException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 		}
@@ -40,6 +45,7 @@ public class PizzaService {
 		// code
 		try {
 			pizzaDao.saveNew(p);
+			event.fire(new PizzaEvent(p, PizzaEventType.CREATE));
 		} catch (SaveException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 		}
@@ -53,7 +59,9 @@ public class PizzaService {
 	public void delete(String s) {
 		// code
 		try {
+			Pizza temp = pizzaDao.get(s);
 			pizzaDao.delete(s);
+			event.fire(new PizzaEvent(temp, PizzaEventType.DELETE));
 		} catch (DeleteException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 		}
