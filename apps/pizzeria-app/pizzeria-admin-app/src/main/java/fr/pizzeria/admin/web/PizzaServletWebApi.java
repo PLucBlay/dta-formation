@@ -21,7 +21,7 @@ import tools.DaoStaticModel;
  */
 @WebServlet("/pizzas")
 public class PizzaServletWebApi extends HttpServlet {
-	protected final PizzaDaoMemory dao;
+	protected final transient PizzaDaoMemory dao;
 
 	/**
 	 * Default constructor.

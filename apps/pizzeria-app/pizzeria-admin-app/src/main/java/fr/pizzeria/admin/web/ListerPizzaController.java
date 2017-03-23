@@ -16,13 +16,14 @@ import fr.pizzeria.exception.DeleteException;
 public class ListerPizzaController extends PizzaServletWebApi {
 
 	private static final long serialVersionUID = 1L;
+	private static final String DELPARAMNAME = "delete";
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if ((request.getParameter("delete") != null) && (dao.exist(request.getParameter("delete")))) {
+		if ((request.getParameter(DELPARAMNAME) != null) && (dao.exist(request.getParameter(DELPARAMNAME)))) {
 			try {
-				dao.delete(request.getParameter("delete"));
+				dao.delete(request.getParameter(DELPARAMNAME));
 			} catch (DeleteException e) {
 				Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 			}
