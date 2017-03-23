@@ -13,8 +13,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- My CSS -->
-<link rel="stylesheet"
-	href="<c:url value='/css/pizzeria.css'></c:url>">
+<link rel="stylesheet" href="<c:url value='/css/pizzeria.css'></c:url>">
 
 
 <!-- jQuery library -->
@@ -40,7 +39,8 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<form class="navbar-form navbar-right">
-					<a type=button class="btn btn-danger" href="<c:url value='/login'></c:url>?log=out">Déconnexion</a>
+					<a type=button class="btn btn-danger"
+						href="<c:url value='/login'></c:url>?log=out">Déconnexion</a>
 				</form>
 			</div>
 			<!--/.navbar-collapse -->
@@ -48,7 +48,6 @@
 	</nav>
 	<div class="container">
 		<h1>Nos Pizzas</h1>
-		<a href="new" class="btn btn-primary">Créer une pizza</a>
 		<div class="table-responsive">
 			<table class="table">
 				<thead>
@@ -86,6 +85,14 @@
 							class="btn btn-danger btn-xs">Supprimer</a></td>
 					</tr>
 					<%}%>  -->
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><a href="new" class="btn btn-success btn-xs">Créer une pizza</a></td>
+					</tr>
+
 				</tbody>
 			</table>
 		</div>

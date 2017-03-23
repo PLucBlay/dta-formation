@@ -1,4 +1,4 @@
-package fr.pizzeria.admin.web;
+package fr.pizzeria.admin.web.controller;
 
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		if ((request.getParameter("log") != null) && ("out".equals(request.getParameter("log")))) {
-			request.getSession().setAttribute("isConnected", false);
+			request.getSession().invalidate();
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/login.jsp");
 		dispatcher.forward(request, response);

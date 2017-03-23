@@ -1,4 +1,4 @@
-package fr.pizzeria.admin.web;
+package fr.pizzeria.admin.web.controller;
 
 import java.io.IOException;
 
@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/technique")
 public class TechniqueController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private final static String SESSION_COUNT = "sessionCount";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -30,20 +31,9 @@ public class TechniqueController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("compteur", request.getSession().getServletContext().getAttribute("compteur"));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/pizzas/technique.jsp");
+		request.setAttribute("compteurSession", request.getSession().getServletContext().getAttribute(SESSION_COUNT));
+		System.out.println();
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/technique.jsp");
 		dispatcher.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

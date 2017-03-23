@@ -45,6 +45,7 @@
 			<!--/.navbar-collapse -->
 		</div>
 	</nav>
-	
+
+	<div>${applicationScope.compteurSession} session(s) ouverte(s)</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package fr.pizzeria.admin.web;
+package fr.pizzeria.admin.web.filter;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -52,6 +52,7 @@ public class LoginFilter implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		this.config = config;
 		this.setAuthorizedAccess.add("/login");
+		this.setAuthorizedAccess.add("/technique");
 		this.setAuthorizedAccess.add("/css/pizzeria.css");
 	}
 
