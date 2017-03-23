@@ -1,8 +1,6 @@
 package fr.pizzeria.admin.web.controller;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
@@ -12,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.pizzeria.exception.UpdateException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
@@ -30,7 +27,7 @@ public class EditerPizzaController extends PizzaServletWebApi implements Servlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("pizza", dao.get(request.getParameter("code").toString()));
+		request.setAttribute("pizza", pizzaService.get(request.getParameter("code").toString()));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/pizzas/editerPizza.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -43,11 +40,7 @@ public class EditerPizzaController extends PizzaServletWebApi implements Servlet
 		String nom = request.getParameter("nom").toString();
 		Double prix = Double.valueOf(request.getParameter("prix"));
 		CategoriePizza categorie = CategoriePizza.valueOf(request.getParameter("categorie").toUpperCase());
-		try {
-			dao.update(code, new Pizza(newCode, nom, prix, categorie));
-		} catch (UpdateException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
-		}
+		pizzaService.update(code, new Pizza(newCode, nom, prix, categorie));
 		response.setStatus(201);
 		response.sendRedirect(request.getContextPath() + "/pizzas/list");
 	}
