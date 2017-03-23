@@ -3,6 +3,7 @@ apps/.recommenders
 apps/.sonarlint
 apps/servers
 apps/RemoteSystemsTempFiles
+apps/Servers2/
 .metadata
 .recommenders
 .sonarlint

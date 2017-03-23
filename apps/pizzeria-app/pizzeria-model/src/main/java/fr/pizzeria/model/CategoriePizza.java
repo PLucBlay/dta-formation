@@ -1,5 +1,7 @@
 package fr.pizzeria.model;
 
+import org.apache.commons.lang3.text.WordUtils;
+
 /**
  * @author PLucBlay
  *
@@ -19,5 +21,12 @@ public enum CategoriePizza {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	/**
+	 * @return a good looking name
+	 */
+	public String getFriendlyName() {
+		return WordUtils.capitalize(name().toLowerCase().replace("_", " "));
 	}
 }

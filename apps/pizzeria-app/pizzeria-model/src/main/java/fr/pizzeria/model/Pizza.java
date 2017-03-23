@@ -1,5 +1,6 @@
 package fr.pizzeria.model;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +30,12 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @Entity
 @NamedQueries({ @NamedQuery(name = "pizza.findAll", query = "select p from Pizza p"),
 		@NamedQuery(name = "pizza.get", query = "select p from Pizza p where p.code=:codeSearched") })
-public class Pizza {
+public class Pizza implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
