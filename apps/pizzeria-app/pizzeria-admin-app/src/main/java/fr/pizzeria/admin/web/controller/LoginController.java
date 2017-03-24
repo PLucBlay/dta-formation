@@ -32,8 +32,8 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String login = request.getParameter("login").toString();
-		String pass = request.getParameter("pass").toString();
+		String login = request.getParameter("login");
+		String pass = request.getParameter("pass");
 		response.setStatus(201);
 		if ("admin@pizzeria.fr".equals(login) && "admin".equals(pass)) {
 			request.getSession().setAttribute("isConnected", true);

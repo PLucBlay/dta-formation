@@ -57,7 +57,7 @@ public class PizzaService {
 			pizzaEJB.update(s, p);
 			event.fire(new PizzaEvent(p, PizzaEventType.UPDATE));
 		} catch (UpdateException e) {
-			Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
+			Logger.getAnonymousLogger().log(Level.SEVERE, "an update exception was thrown", e);
 		}
 	}
 

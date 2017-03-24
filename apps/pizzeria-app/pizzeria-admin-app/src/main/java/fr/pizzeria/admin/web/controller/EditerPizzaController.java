@@ -27,7 +27,7 @@ public class EditerPizzaController extends PizzaServletWebApi implements Servlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("pizza", pizzaService.get(request.getParameter("code").toString()));
+		request.setAttribute("pizza", pizzaService.get(request.getParameter("code")));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/pizzas/editerPizza.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -35,9 +35,9 @@ public class EditerPizzaController extends PizzaServletWebApi implements Servlet
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String code = request.getParameter("code").toString();
-		String newCode = request.getParameter("newcode").toString();
-		String nom = request.getParameter("nom").toString();
+		String code = request.getParameter("code");
+		String newCode = request.getParameter("newcode");
+		String nom = request.getParameter("nom");
 		Double prix = Double.valueOf(request.getParameter("prix"));
 		CategoriePizza categorie = CategoriePizza.valueOf(request.getParameter("categorie").toUpperCase());
 		pizzaService.update(code, new Pizza(newCode, nom, prix, categorie));

@@ -32,8 +32,8 @@ public class CreerPizzaController extends PizzaServletWebApi {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String code = request.getParameter("code").toString();
-		String nom = request.getParameter("nom").toString();
+		String code = request.getParameter("code");
+		String nom = request.getParameter("nom");
 		Double prix = Double.valueOf(request.getParameter("prix"));
 		CategoriePizza categorie = CategoriePizza.valueOf(request.getParameter("categorie").toUpperCase());
 		pizzaService.saveNew(new Pizza(code, nom, prix, categorie));

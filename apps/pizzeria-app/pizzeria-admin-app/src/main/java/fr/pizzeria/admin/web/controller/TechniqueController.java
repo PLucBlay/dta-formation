@@ -19,7 +19,7 @@ import fr.pizzeria.admin.metier.PizzaEvent;
 @WebServlet("/technique")
 public class TechniqueController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final static String SESSION_COUNT = "sessionCount";
+	private static final String SESSION_COUNT = "sessionCount";
 
 	@Inject
 	private List<PizzaEvent> listEvents;
@@ -40,7 +40,6 @@ public class TechniqueController extends HttpServlet {
 			throws ServletException, IOException {
 		request.setAttribute("compteurSession", request.getSession().getServletContext().getAttribute(SESSION_COUNT));
 		request.setAttribute("listEvents", listEvents);
-		System.out.println();
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/technique.jsp");
 		dispatcher.forward(request, response);
 	}

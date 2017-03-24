@@ -21,12 +21,6 @@ public class PizzaServletWebApi extends HttpServlet {
 	protected PizzaService pizzaService;
 
 	/**
-	 * Default constructor.
-	 */
-	public PizzaServletWebApi() {
-	}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */

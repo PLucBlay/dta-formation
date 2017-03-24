@@ -20,11 +20,12 @@ public class PizzaServiceEJB {
 
 	@PersistenceContext(unitName = "pizza-db")
 	private EntityManager em;
+	private static final String PIZGET = "pizza.get";
+	private static final String CODSEARCH = "codeSearched";
 
 	public List<Pizza> findAll() {
 		TypedQuery<Pizza> query = em.createNamedQuery("pizza.findAll", Pizza.class);
-		List<Pizza> listPizzas = query.getResultList();
-		return listPizzas;
+		return query.getResultList();
 	}
 
 	public void saveNew(Pizza pizza) throws SaveException {
@@ -34,8 +35,8 @@ public class PizzaServiceEJB {
 	public void update(String codePizza, Pizza pizza) throws UpdateException {
 		if (exist(codePizza)) {
 			try {
-				Pizza old = (Pizza) em.createNamedQuery("pizza.get").setParameter("codeSearched", codePizza)
-						.getResultList().get(0);
+				Pizza old = (Pizza) em.createNamedQuery(PIZGET).setParameter(CODSEARCH, codePizza).getResultList()
+						.get(0);
 				old.setCategorie(pizza.getCategorie());
 				old.setCode(pizza.getCode());
 				old.setNom(pizza.getNom());
@@ -52,7 +53,7 @@ public class PizzaServiceEJB {
 	public void delete(String codePizza) throws DeleteException {
 		Pizza piz;
 		try {
-			piz = (Pizza) em.createNamedQuery("pizza.get").setParameter("codeSearched", codePizza).getSingleResult();
+			piz = (Pizza) em.createNamedQuery(PIZGET).setParameter(CODSEARCH, codePizza).getSingleResult();
 		} catch (IndexOutOfBoundsException e) {
 			throw new DeleteException(e);
 		}
@@ -65,7 +66,7 @@ public class PizzaServiceEJB {
 
 	public boolean exist(String codePizza) {
 		try {
-			em.createNamedQuery("pizza.get").setParameter("codeSearched", codePizza).getResultList().get(0);
+			em.createNamedQuery(PIZGET).setParameter(CODSEARCH, codePizza).getResultList().get(0);
 			return true;
 		} catch (IndexOutOfBoundsException e) {
 			Logger.getAnonymousLogger().log(Level.FINE, "pizza does not exist exception", e);
@@ -76,8 +77,7 @@ public class PizzaServiceEJB {
 	public Pizza get(String codePizza) {
 		Pizza piz = null;
 		try {
-			piz = (Pizza) em.createNamedQuery("pizza.get").setParameter("codeSearched", codePizza).getResultList()
-					.get(0);
+			piz = (Pizza) em.createNamedQuery(PIZGET).setParameter(CODSEARCH, codePizza).getResultList().get(0);
 			return piz;
 		} catch (IndexOutOfBoundsException e) {
 			Logger.getAnonymousLogger().log(Level.FINE, "pizza does not exist exception", e);

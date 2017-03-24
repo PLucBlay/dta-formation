@@ -28,7 +28,7 @@ public class ListerPizzaController extends PizzaServletWebApi {
 
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String code = req.getParameter("code").toString();
+		String code = req.getParameter("code");
 		pizzaService.delete(code);
 		resp.setStatus(200);
 
