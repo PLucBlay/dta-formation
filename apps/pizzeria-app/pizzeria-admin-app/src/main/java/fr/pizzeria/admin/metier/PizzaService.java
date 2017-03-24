@@ -32,6 +32,9 @@ public class PizzaService {
 	@EJB
 	private PizzaServiceEJB pizzaEJB;
 
+	/**
+	 * Warning Auto-add constantly new random pizzas
+	 */
 	@Schedule(second = "10", minute = "*", hour = "*")
 	public void insererPizza() {
 		String code = "P" + RandomStringUtils.random(3, true, false).toUpperCase();
