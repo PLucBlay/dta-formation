@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class loginFilter
  */
-@WebFilter(urlPatterns = { "/*" })
+@WebFilter(urlPatterns = { "/pizzas/*", "/technique" })
 public class LoginFilter implements Filter {
 	private FilterConfig config = null;
 	private Set<String> setAuthorizedAccess = new HashSet<>();
