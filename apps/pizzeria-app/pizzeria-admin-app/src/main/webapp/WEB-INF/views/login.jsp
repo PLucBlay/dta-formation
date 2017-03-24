@@ -34,7 +34,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="list">Pizzeria</a>
+				<a class="navbar-brand" href="pizzas/list">Pizzeria</a>
 			</div>
 			<!--/.navbar-collapse -->
 		</div>

@@ -38,8 +38,10 @@
 				<a class="navbar-brand" href="list">Pizzeria</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
-				<form class="navbar-form navbar-right">
-					<a type=button class="btn btn-danger"
+				<form class="navbar-form form-inline navbar-right">
+					<a type=button class="btn-primary btn"
+						href="<c:url value='/technique'></c:url>">Statistiques</a> <a
+						type=button class="btn-danger btn"
 						href="<c:url value='/login'></c:url>?log=out">Déconnexion</a>
 				</form>
 			</div>
@@ -90,7 +92,8 @@
 						<td></td>
 						<td></td>
 						<td></td>
-						<td><a href="new" class="btn btn-success btn-xs">Créer une pizza</a></td>
+						<td><a href="new" class="btn btn-success btn-xs">Créer
+								une pizza</a></td>
 					</tr>
 
 				</tbody>
