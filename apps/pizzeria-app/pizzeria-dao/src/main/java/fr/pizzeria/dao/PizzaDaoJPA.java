@@ -30,6 +30,8 @@ public class PizzaDaoJPA implements IDao<Pizza, String> {
 	private Scanner scan;
 	private EntityManagerFactory emf;
 	private static final String PERSISTENCE_UNIT_NAME = "pizzeria-console";
+	private static final String PIZGET = "pizza.get";
+	private static final String CODSEARCH = "codeSearched";
 
 	/**
 	 * @param scan
@@ -75,8 +77,8 @@ public class PizzaDaoJPA implements IDao<Pizza, String> {
 			EntityManager em = emf.createEntityManager();
 			EntityTransaction et = em.getTransaction();
 			try {
-				Pizza old = (Pizza) em.createNamedQuery("pizza.get").setParameter("codeSearched", codePizza)
-						.getResultList().get(0);
+				Pizza old = (Pizza) em.createNamedQuery(PIZGET).setParameter(CODSEARCH, codePizza).getResultList()
+						.get(0);
 				et.begin();
 				old.setCategorie(pizza.getCategorie());
 				old.setCode(pizza.getCode());
@@ -100,7 +102,7 @@ public class PizzaDaoJPA implements IDao<Pizza, String> {
 		EntityManager em = emf.createEntityManager();
 		Pizza piz;
 		try {
-			piz = (Pizza) em.createNamedQuery("pizza.get").setParameter("codeSearched", codePizza).getSingleResult();
+			piz = (Pizza) em.createNamedQuery(PIZGET).setParameter(CODSEARCH, codePizza).getSingleResult();
 		} catch (IndexOutOfBoundsException e) {
 			em.close();
 			throw new DeleteException(e);
@@ -127,7 +129,7 @@ public class PizzaDaoJPA implements IDao<Pizza, String> {
 	public boolean exist(String codePizza) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			em.createNamedQuery("pizza.get").setParameter("codeSearched", codePizza).getResultList().get(0);
+			em.createNamedQuery(PIZGET).setParameter(CODSEARCH, codePizza).getResultList().get(0);
 			em.close();
 			return true;
 		} catch (IndexOutOfBoundsException e) {
