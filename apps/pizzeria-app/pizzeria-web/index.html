@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Les Pizzas</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- My CSS -->
+<link rel="stylesheet" href="./css/pizzeria.css">
+
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="">Pizzeria</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse"></div>
+			<!--/.navbar-collapse -->
+		</div>
+	</nav>
+	<div class="container">
+		<h1>Nos Pizzas</h1>
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Code</th>
+						<th>Nom</th>
+						<th>Categorie</th>
+						<th>Prix</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="list_target">
+				</tbody>
+				<tfooter>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><a href="new" class="btn btn-success btn-xs">Cr&eacuteer
+								une pizza</a></td>
+					</tr>
+					</tfooter>
+			</table>
+		</div>
+	</div>
+</body>
+<footer>
+	<script>
+		var API_PIZZAS = "http://localhost:8080/pizzeria-admin-app/api/pizzas";
+		
+		document.addEventListener("DOMContentLoaded", function() {
+			$.getJSON(API_PIZZAS,
+			function(data) {
+				var tab_tr = "";
+				var tab_links ="";
+				$.each(data, function() {
+					var tab_td = "";
+					$.each(this, function(k, v) {
+						if((k!='id')&&(k!='urlPizza')){
+							tab_td += "<td>" + v + "</td>";
+							if((k=="code")){
+								tab_links="<td><a type='button' id='edit' value='"+v+"'class='btn btn-primary btn-xs'>Editer</a> <a type='button' id='delete' value='"+v+"' class='btn btn-danger btn-xs'>Supprimer</a></td>";
+							}
+						}
+					})
+					tab_tr += "<tr>" + tab_td + tab_links + "</tr>";
+					$("#list_target").html(tab_tr);
+				})
+			});
+		});
+		
+		function deletePizza(code){
+			$.ajax({
+			    url: API_PIZZAS  + '/' +code,
+			    type: 'DELETE'
+			})
+		}
+		$(document).on("click", "#delete", function(){
+			var code = $(this).attr("value");
+		 	deletePizza(code);
+			$(this).parent().parent().remove();
+		});
+	</script>
+</footer>
+</html>
