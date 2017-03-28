@@ -6,9 +6,13 @@
     <version>1.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>pizzeria-console-client</groupId>
-  <artifactId>pizzeria-console-client</artifactId>
+  <groupId>pizzeria-admin-app</groupId>
+  <artifactId>pierreluc-pizzeria-admin-app</artifactId>
+  <packaging>war</packaging>
+  <name>pizzeria-admin-app Maven Webapp</name>
+  <url>http://maven.apache.org</url>
   <build>
+    <finalName>pizzeria-admin-app</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -34,12 +38,38 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>fr.pizzeria.console.PizzeriaUserConsole</mainClass>
+              <mainClass>fr.pizzeria.console.ListerPizzasController</mainClass>
             </manifest>
           </archive>
         </configuration>
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>7.0</version>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>javax.mail</artifactId>
+          <groupId>com.sun.mail</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>hamcrest-core</artifactId>
+          <groupId>org.hamcrest</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
 </project>
 

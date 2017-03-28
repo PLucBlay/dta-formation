@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm;
 
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,32 +24,32 @@ public class OptionMAJ extends Option {
 	}
 
 	@Override
-	public void execute(IDao dao) {
+	public void execute(IDao dao, Scanner scan) {
 
 		// check si 99 > sortie ou si code pizza existe
 		String codeModif;
 		do {
 			System.out.println("Veuillez saisir le code de la pizza � modifier (99 pour sortir) : ");
-			codeModif = dao.getScanner().next();
+			codeModif = scan.next();
 		} while (!"99".equals(codeModif) && !(dao.exist(codeModif)));
 
 		// si !99 on continue sinon fin d'execute
 		if (!"99".equals(codeModif)) {
 			System.out.println("Veuillez saisir le nouveau code de la pizza : ");
-			String codePizza = dao.getScanner().next();
+			String codePizza = scan.next();
 			System.out.println("Veuillez saisir le nom (sans espace) : ");
-			String nomPizza = dao.getScanner().next();
+			String nomPizza = scan.next();
 			System.out.println("Veuillez saisir le prix : ");
 			boolean scanError = false;
 			double prixPizza = -1.0;
 			while (!scanError) {
 				try {
-					prixPizza = dao.getScanner().nextDouble();
+					prixPizza = scan.nextDouble();
 					scanError = true;
 				} catch (Exception e) {
 					Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 					System.out.println("Erreur : veuillez entrer un nombre :");
-					dao.getScanner().next();
+					scan.next();
 				}
 			}
 
@@ -58,7 +59,7 @@ public class OptionMAJ extends Option {
 			boolean isCategorie = false;
 			do {
 				System.out.println("Veuillez saisir le type (Viande,Sans_Viande,Poisson) : ");
-				stringCategorie = dao.getScanner().next();
+				stringCategorie = scan.next();
 				try {
 					categoriePizza = CategoriePizza.valueOf(stringCategorie.toUpperCase());
 					isCategorie = true;

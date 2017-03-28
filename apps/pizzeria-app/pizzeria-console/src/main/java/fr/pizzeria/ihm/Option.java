@@ -1,5 +1,7 @@
 package fr.pizzeria.ihm;
 
+import java.util.Scanner;
+
 import fr.pizzeria.dao.IDao;
 
 /**
@@ -36,5 +38,5 @@ public abstract class Option {
 	 * 
 	 * @param dao
 	 */
-	public abstract void execute(IDao dao);
+	public abstract void execute(IDao dao, Scanner scan);
 }

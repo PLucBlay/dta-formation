@@ -30,8 +30,7 @@ public class PizzaDaoJPAGeneric<T, E> implements IDao<JpaUpdatable, E> {
 	/**
 	 * @param scan
 	 */
-	public PizzaDaoJPAGeneric(Scanner scan) {
-		this.scan = scan;
+	public PizzaDaoJPAGeneric() {
 		emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 	}
 
@@ -109,11 +108,6 @@ public class PizzaDaoJPAGeneric<T, E> implements IDao<JpaUpdatable, E> {
 			em.close();
 			throw new DeleteException(exception);
 		}
-	}
-
-	@Override
-	public Scanner getScanner() {
-		return scan;
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package fr.pizzeria.dao;
 
 import java.util.List;
-import java.util.Scanner;
 
 import fr.pizzeria.exception.DeleteException;
 import fr.pizzeria.exception.SaveException;
@@ -71,11 +70,6 @@ public interface IDao<T, C> {
 	 * @return element(T)
 	 */
 	T get(C code);
-
-	/**
-	 * @return the scanner
-	 */
-	Scanner getScanner();
 
 	/**
 	 * clear files created by the dao

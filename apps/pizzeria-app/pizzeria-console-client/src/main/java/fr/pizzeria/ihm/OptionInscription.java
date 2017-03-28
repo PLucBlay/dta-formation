@@ -1,5 +1,7 @@
 package fr.pizzeria.ihm;
 
+import java.util.Scanner;
+
 import fr.pizzeria.dao.IDao;
 
 /**
@@ -17,7 +19,7 @@ public class OptionInscription extends Option {
 	}
 
 	@Override
-	public void execute(IDao dao) {
+	public void execute(IDao dao, Scanner scan) {
 
 	}
 

@@ -49,11 +49,11 @@ public class PizzeriaUserConsole {
 			 * valid DAO for launch
 			 */
 			case "MODEL":
-				dao = new PizzaDaoMemory(scan);
+				dao = new PizzaDaoMemory();
 				break;
 			case "JPA":
 				java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
-				dao = new PizzaDaoJPA(scan);
+				dao = new PizzaDaoJPA();
 				break;
 			default:
 				throw new ConfigurationException(

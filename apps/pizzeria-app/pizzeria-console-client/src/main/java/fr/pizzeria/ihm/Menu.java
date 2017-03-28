@@ -2,6 +2,7 @@ package fr.pizzeria.ihm;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,6 +15,7 @@ import fr.pizzeria.dao.IDao;
 public class Menu {
 	private Map<Integer, Option> listeOptions;
 	private IDao dao;
+	private Scanner scan = new Scanner(java.lang.System.in);
 
 	/**
 	 * @param dao
@@ -72,13 +74,12 @@ public class Menu {
 	 * start asking the user to choose an option
 	 */
 	public void execute() {
-		dao.getScanner();
 		int reponseUser = 0;
 		boolean scanError;
 
 		while (!(listeOptions.get(reponseUser) instanceof OptionExit)) {
 			if (listeOptions.containsKey(reponseUser)) {
-				listeOptions.get(reponseUser).execute(dao);
+				listeOptions.get(reponseUser).execute(dao, scan);
 			}
 			showMenu();
 
@@ -86,12 +87,12 @@ public class Menu {
 			scanError = false;
 			while (!scanError) {
 				try {
-					reponseUser = dao.getScanner().nextInt();
+					reponseUser = scan.nextInt();
 					scanError = true;
 				} catch (Exception e) {
 					Logger.getAnonymousLogger().log(Level.SEVERE, "an exception was thrown", e);
 					System.out.println("Erreur : veuillez entrer un entier :");
-					dao.getScanner().next();
+					scan.next();
 				}
 			}
 		}

@@ -36,8 +36,7 @@ public class PizzaDaoJPA implements IDao<Pizza, String> {
 	/**
 	 * @param scan
 	 */
-	public PizzaDaoJPA(Scanner scan) {
-		this.scan = scan;
+	public PizzaDaoJPA() {
 		emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 	}
 
@@ -118,11 +117,6 @@ public class PizzaDaoJPA implements IDao<Pizza, String> {
 			em.close();
 			throw new DeleteException(e);
 		}
-	}
-
-	@Override
-	public Scanner getScanner() {
-		return scan;
 	}
 
 	@Override

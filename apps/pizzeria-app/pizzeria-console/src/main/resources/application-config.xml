@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<bean id="menu" class="fr.pizzeria.ihm.Menu">
+		<constructor-arg ref="pizzaDao"></constructor-arg>
+		<constructor-arg ref="scan"></constructor-arg>
+		<property name="listeOptions">
+			<util:map>
+				<entry key="1" value-ref="optionLister"></entry>
+				<entry key="2" value-ref="optionListerParCategorie"></entry>
+				<entry key="3" value-ref="optionPlusCher"></entry>
+				<entry key="4" value-ref="optionAjouter"></entry>
+				<entry key="5" value-ref="optionMaj"></entry>
+				<entry key="6" value-ref="optionSuppr"></entry>
+				<entry key="99" value-ref="optionExit"></entry>
+			</util:map>
+		</property>
+	</bean>
+
+	<bean id="scan" class="java.util.Scanner">
+		<constructor-arg>
+			<util:constant static-field="java.lang.System.in" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="optionLister" class="fr.pizzeria.ihm.OptionLister"></bean>
+	<bean id="optionListerParCategorie" class="fr.pizzeria.ihm.OptionListerParCategorie"></bean>
+	<bean id="optionPlusCher" class="fr.pizzeria.ihm.OptionPlusCher"></bean>
+	<bean id="optionAjouter" class="fr.pizzeria.ihm.OptionAjouter"></bean>
+	<bean id="optionMaj" class="fr.pizzeria.ihm.OptionMAJ"></bean>
+	<bean id="optionSuppr" class="fr.pizzeria.ihm.OptionSuppr"></bean>
+	<bean id="optionExit" class="fr.pizzeria.ihm.OptionExit"></bean>
+
+</beans>

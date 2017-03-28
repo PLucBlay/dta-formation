@@ -112,11 +112,6 @@ public class ClientDaoJPA implements IDao<Client, Integer> {
 	}
 
 	@Override
-	public Scanner getScanner() {
-		return scan;
-	}
-
-	@Override
 	public boolean exist(Integer id) {
 		EntityManager em = emf.createEntityManager();
 		try {

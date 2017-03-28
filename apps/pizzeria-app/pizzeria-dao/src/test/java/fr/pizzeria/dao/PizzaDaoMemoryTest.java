@@ -20,7 +20,7 @@ public class PizzaDaoMemoryTest {
 	@Before
 	public void setUp() {
 		Scanner scan = new Scanner(System.in);
-		pizzaDao = new PizzaDaoMemory(scan);
+		pizzaDao = new PizzaDaoMemory();
 	}
 
 	@Test

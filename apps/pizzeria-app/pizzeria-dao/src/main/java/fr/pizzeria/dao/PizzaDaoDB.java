@@ -30,7 +30,6 @@ import fr.pizzeria.model.Pizza;
  */
 public class PizzaDaoDB implements IDao<Pizza, String> {
 	private static final String SQLALL = "SELECT * FROM pizza";
-	private Scanner scan;
 	private String url;
 	private String user;
 	private String password;
@@ -44,7 +43,6 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 		url = bundle.getString("url");
 		user = bundle.getString("user");
 		password = bundle.getString("password");
-		this.scan = scan;
 		try {
 			Class.forName(bundle.getString("driver"));
 		} catch (ClassNotFoundException e) {
@@ -121,11 +119,6 @@ public class PizzaDaoDB implements IDao<Pizza, String> {
 				throw new DeleteException(e);
 			}
 		}
-	}
-
-	@Override
-	public Scanner getScanner() {
-		return scan;
 	}
 
 	@Override

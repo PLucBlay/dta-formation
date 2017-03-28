@@ -1,5 +1,7 @@
 package fr.pizzeria.ihm;
 
+import java.util.Scanner;
+
 import fr.pizzeria.dao.IDao;
 import fr.pizzeria.exception.StockageException;
 
@@ -18,10 +20,10 @@ public class OptionSuppr extends Option {
 	}
 
 	@Override
-	public void execute(IDao dao) {
+	public void execute(IDao dao, Scanner scan) {
 		System.out.println("Veuillez saisir le code de la pizza à supprimer : ");
 		try {
-			dao.delete(dao.getScanner().next());
+			dao.delete(scan.next());
 		} catch (StockageException e) {
 			System.out.println(e);
 		}

@@ -1,7 +1,5 @@
 package fr.pizzeria.admin.web.tools;
 
-import java.util.Scanner;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
@@ -14,7 +12,7 @@ public class DaoProducer {
 	@Produces
 	@ApplicationScoped
 	public IDao<Pizza, String> getDao() {
-		return new PizzaDaoMemory(new Scanner(System.in));
+		return new PizzaDaoMemory();
 	}
 
 }
