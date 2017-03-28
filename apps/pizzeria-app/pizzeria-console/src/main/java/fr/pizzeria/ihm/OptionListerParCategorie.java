@@ -4,6 +4,8 @@ import java.util.Comparator;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Controller;
+
 import fr.pizzeria.dao.IDao;
 import fr.pizzeria.model.Pizza;
 
@@ -11,6 +13,7 @@ import fr.pizzeria.model.Pizza;
  * @author PLucBlay
  *
  */
+@Controller
 public class OptionListerParCategorie extends Option {
 
 	/**

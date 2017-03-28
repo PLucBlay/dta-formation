@@ -3,6 +3,8 @@ package fr.pizzeria.ihm;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Controller;
+
 import fr.pizzeria.dao.IDao;
 import fr.pizzeria.model.Pizza;
 
@@ -10,6 +12,7 @@ import fr.pizzeria.model.Pizza;
  * @author PLucBlay
  *
  */
+@Controller
 public class OptionLister extends Option {
 
 	/**

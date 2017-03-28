@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.springframework.stereotype.Controller;
+
 import fr.pizzeria.dao.IDao;
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.CategoriePizza;
@@ -13,6 +15,7 @@ import fr.pizzeria.model.Pizza;
  * @author PLucBlay
  *
  */
+@Controller
 public class OptionAjouter extends Option {
 
 	/**

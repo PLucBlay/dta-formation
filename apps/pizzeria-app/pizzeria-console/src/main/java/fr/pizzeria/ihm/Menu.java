@@ -6,23 +6,36 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Controller;
+
 import fr.pizzeria.dao.IDao;
 
 /**
  * @author PLucBlay
  *
  */
+@Controller
 public class Menu {
+
 	private Map<Integer, Option> listeOptions;
 	private IDao dao;
 	private Scanner scan;
 
+	@Autowired
+	private ApplicationContext context;
+
 	/**
 	 * @param dao
 	 */
+	@Autowired
 	public Menu(IDao dao, Scanner scan) {
 		listeOptions = new LinkedHashMap<>();// maintain order
 		this.scan = scan;
+		this.dao = dao;
 		// listeOptions.put(1, new OptionLister());
 		// listeOptions.put(2, new OptionListerParCategorie());
 		// listeOptions.put(3, new OptionPlusCher());
@@ -32,8 +45,17 @@ public class Menu {
 		// listeOptions.put(10, new OptionStockerVersFichier());
 		// listeOptions.put(11, new OptionNettoyerFichiers());
 		// listeOptions.put(99, new OptionExit());
+	}
 
-		this.dao = dao;
+	@PostConstruct
+	public void init() {
+		listeOptions.put(1, context.getBean(OptionLister.class));
+		listeOptions.put(2, context.getBean(OptionListerParCategorie.class));
+		listeOptions.put(3, context.getBean(OptionPlusCher.class));
+		listeOptions.put(4, context.getBean(OptionAjouter.class));
+		listeOptions.put(5, context.getBean(OptionMAJ.class));
+		listeOptions.put(6, context.getBean(OptionSuppr.class));
+		listeOptions.put(99, context.getBean(OptionExit.class));
 	}
 
 	/**
