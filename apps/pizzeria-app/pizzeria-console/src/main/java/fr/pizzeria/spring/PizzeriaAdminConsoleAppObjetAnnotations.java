@@ -25,7 +25,7 @@ public class PizzeriaAdminConsoleAppObjetAnnotations {
 	 */
 	public static void main(String[] args) {
 		java.util.logging.Logger.getLogger("org").setLevel(Level.SEVERE);
-		try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class)) {
+		try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(PizzeriaAdminConsoleAppConfig.class)) {
 			Menu menu = context.getBean(Menu.class);
 			menu.execute();
 		}

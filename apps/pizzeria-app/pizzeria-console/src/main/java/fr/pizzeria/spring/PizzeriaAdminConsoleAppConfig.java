@@ -16,7 +16,7 @@ import fr.pizzeria.model.Pizza;
  */
 @Configuration
 @ComponentScan("fr.pizzeria.ihm")
-public class AppConfig {
+public class PizzeriaAdminConsoleAppConfig {
 	@Bean
 	public Scanner scanner() {
 		return new Scanner(System.in);
