@@ -8,10 +8,8 @@ import java.util.logging.Logger;
 import javax.naming.ConfigurationException;
 
 import fr.pizzeria.dao.IDao;
-import fr.pizzeria.dao.PizzaDaoDB;
 import fr.pizzeria.dao.PizzaDaoJPA;
 import fr.pizzeria.dao.PizzaDaoMemory;
-import fr.pizzeria.ihm.Menu;
 import fr.pizzeria.model.Pizza;
 
 /**
@@ -42,7 +40,7 @@ public class PizzeriaUserConsole {
 			switch (typeDao) {
 			case "DB":
 				ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
-				dao = new PizzaDaoDB(scan, bundle);
+				// dao = new PizzaDaoDB(scan, bundle);
 				break;
 			/*
 			 * model DAO set for default non-recognized configuration to have a
@@ -59,11 +57,11 @@ public class PizzeriaUserConsole {
 				throw new ConfigurationException(
 						"Dao type Error : set dao.type in application.properties to a valid DAO (MODEL,DB)");
 			}
-			Menu menu = new Menu(dao);
-			menu.execute();
+			// Menu menu = new Menu(dao);
+			// menu.execute();
 			// launch stopping methods for DAOs
 			if (typeDao.equals("JPA")) {
-				dao.stopDao();
+				// dao.stopDao();
 			}
 		} catch (ConfigurationException e) {
 			Logger.getAnonymousLogger().log(Level.SEVERE, "Config exception :", e);
