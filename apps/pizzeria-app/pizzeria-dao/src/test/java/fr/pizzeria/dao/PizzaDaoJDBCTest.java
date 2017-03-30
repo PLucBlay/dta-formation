@@ -16,7 +16,7 @@ import fr.pizzeria.model.Pizza;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = PizzaDaoConfig.class)
-public class PizzaDaoJDBC {
+public class PizzaDaoJDBCTest {
 
 	@Autowired
 	private IDao<Pizza, String> pizzaDao;

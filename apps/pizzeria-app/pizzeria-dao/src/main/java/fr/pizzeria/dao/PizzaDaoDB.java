@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -27,6 +28,7 @@ import fr.pizzeria.model.Pizza;
  *
  */
 @Repository
+@Qualifier("pizzaDaoDB")
 public class PizzaDaoDB implements IDao<Pizza, String> {
 	private static final String SQLALL = "SELECT * FROM pizza";
 

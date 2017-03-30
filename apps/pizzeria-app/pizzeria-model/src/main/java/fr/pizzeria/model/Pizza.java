@@ -118,7 +118,7 @@ public class Pizza implements Serializable {
 	/**
 	 * @return id of pizza
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

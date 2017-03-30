@@ -135,7 +135,11 @@
 				<version>1.4.194</version>
 				<scope>test</scope>
 			</dependency>
-
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-jpa</artifactId>
+				<version>1.11.1.RELEASE</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>
