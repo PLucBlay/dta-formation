@@ -37,7 +37,6 @@ public class PizzaDaoJPATest {
 		assertEquals(0, pizzaDao.findAll().size());
 		pizzaDao.saveNew(new Pizza("", "Poisscaille", 25.5, CategoriePizza.POISSON));
 		assertTrue(pizzaDao.findAll().size() > 0);
-		System.out.println(pizzaDao.findAll().get(0));
 		pizzaDao.delete("Poi");
 		assertEquals(0, pizzaDao.findAll().size());
 	}

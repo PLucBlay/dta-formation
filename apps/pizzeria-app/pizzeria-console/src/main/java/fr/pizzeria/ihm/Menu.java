@@ -9,7 +9,6 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
@@ -23,7 +22,7 @@ import fr.pizzeria.dao.IDao;
 public class Menu {
 
 	private Map<Integer, Option> listeOptions;
-	@Qualifier("daoJDBC")
+	@Autowired
 	private IDao dao;
 	private Scanner scan;
 

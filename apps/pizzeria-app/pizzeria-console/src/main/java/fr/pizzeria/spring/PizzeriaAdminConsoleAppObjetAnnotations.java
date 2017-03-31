@@ -2,10 +2,6 @@ package fr.pizzeria.spring;
 
 import java.util.logging.Level;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import fr.pizzeria.ihm.Menu;
-
 /**
  * @author PLucBlay
  *
@@ -25,9 +21,11 @@ public class PizzeriaAdminConsoleAppObjetAnnotations {
 	 */
 	public static void main(String[] args) {
 		java.util.logging.Logger.getLogger("org").setLevel(Level.SEVERE);
-		try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(PizzeriaAdminConsoleAppConfig.class)) {
-			Menu menu = context.getBean(Menu.class);
-			menu.execute();
-		}
+		// try (AnnotationConfigApplicationContext context = new
+		// AnnotationConfigApplicationContext(PizzeriaAdminConsoleAppConfig.class))
+		// {
+		// Menu menu = context.getBean(Menu.class);
+		// menu.execute();
+		// }
 	}
 }
