@@ -17,6 +17,7 @@
 		<module>pizzeria-console-client</module>
 		<module>pizzeria-admin-app</module>
 		<module>pizzeria-stock-app</module>
+		<module>pizzeria-stock-app-spring-boot</module>
 	</modules>
 	<build>
 		<pluginManagement>
@@ -111,6 +112,12 @@
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-entitymanager</artifactId>
 				<version>5.1.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>5.1.0.Final</version>
+				<scope>runtime</scope>
 			</dependency>
 			<dependency>
 				<groupId>javax</groupId>
